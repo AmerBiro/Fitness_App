@@ -62,7 +62,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/email"
+            android:text="@string/email_Create_account"
             style="@style/field"
             android:layout_marginLeft="33dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -194,17 +194,19 @@
         </LinearLayout>
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/next_create_account"
-            android:background="@drawable/button_wide"
-            android:textAllCaps="false"
-            style="@style/button"
-            android:layout_marginTop="20dp"
-            />
-
     </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_body"
+        android:background="@drawable/button_wide"
+        android:textAllCaps="false"
+        style="@style/button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="30dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
