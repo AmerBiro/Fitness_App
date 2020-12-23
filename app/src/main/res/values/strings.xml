@@ -1,5 +1,61 @@
 <resources>
-    <string name="app_name">Fitness\' App</string>
+
+    <string name="app_name">Fitness App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    <string name="Splash_screen">Fitness App</string>
+    <string name="initializing">Initializing...</string>
+
+    <string name="Registration">Registration</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="create_account">Create account</string>
+
+
+
+    <string name="Platform">Select a platform</string>
+
+
+
+
+    <string name="Create_account">Create account</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
+    <string name="password_create_account">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="day">07</string>
+    <string name="month">04</string>
+    <string name="year">1990</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="next_create_account">Next</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="Body">Body</string>
+    <string name="Membership_info">Membership info</string>
+    <string name="Account_image">Account image</string>
+
+    <string name="cancel">Cancel</string>
+
+
 </resources>
