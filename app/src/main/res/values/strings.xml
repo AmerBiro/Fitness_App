@@ -5,7 +5,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-
     <string name="Splash_screen">Fitness App</string>
     <string name="initializing">Initializing...</string>
 
@@ -32,9 +31,8 @@
     <string name="password_create_account">Password</string>
     <string name="confirm_password">Confirm password</string>
     <string name="date_of_birth">Date of birth</string>
-    <string name="day">07</string>
-    <string name="month">04</string>
-    <string name="year">1990</string>
+    <string name="select">Select</string>
+    <string name="date">xx/xx/xxxx</string>
     <string name="gender">Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
@@ -65,7 +63,14 @@
     <string name="done">Done</string>
 
 
-    <string name="cancel">Cancel</string>
+
+    <string name="Programs">Programs</string>
+    <string name="programs_name">Weight losing</string>
+    <string name="x_days">3 days</string>
+    <string name="x_excercises">27 excercise</string>
+    <string name="start_date">01/01/2020</string>
+    <string name="end_date">01/04/2020</string>
+
 
 
 </resources>

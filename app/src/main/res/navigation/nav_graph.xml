@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.fitnessapp.home.SplashScreen"
+        android:label="home_splash_screen"
+        tools:layout="@layout/home_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_registration"
+            app:destination="@id/registration"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/splashScreen"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            />
+        <action
+            android:id="@+id/action_splashScreen_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.example.fitnessapp.registration.Registration"
+        android:label="registration_registration"
+        tools:layout="@layout/registration_registration" >
+        <action
+            android:id="@+id/action_registration_to_create_Account"
+            app:destination="@id/create_Account"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/create_Account"
+        android:name="com.example.fitnessapp.registration.Create_Account"
+        android:label="registration_create__account"
+        tools:layout="@layout/registration_create__account" >
+        <action
+            android:id="@+id/action_create_Account_to_body2"
+            app:destination="@id/body2" />
+        <action
+            android:id="@+id/action_create_Account_to_registration"
+            app:destination="@id/registration" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/body2"
+        android:name="com.example.fitnessapp.registration.Body"
+        android:label="registration_body"
+        tools:layout="@layout/registration_body" >
+        <action
+            android:id="@+id/action_body2_to_membership"
+            app:destination="@id/membership" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/membership"
+        android:name="com.example.fitnessapp.registration.Membership"
+        android:label="registration_membership"
+        tools:layout="@layout/registration_membership" >
+        <action
+            android:id="@+id/action_membership_to_account_Image"
+            app:destination="@id/account_Image" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/account_Image"
+        android:name="com.example.fitnessapp.registration.Account_Image"
+        android:label="registration_account__image"
+        tools:layout="@layout/registration_account__image" >
+        <action
+            android:id="@+id/action_account_Image_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.fitnessapp.home.Home"
+        android:label="home_home"
+        tools:layout="@layout/home_home" />
+
+</navigation>

@@ -32,10 +32,14 @@
 
 
         <EditText
+            android:id="@+id/id_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/username"
             style="@style/field"
+            android:inputType="textEmailAddress"
+            android:hint="@string/username"
+            android:ems="8"
+            android:textColorHint="@color/ColorLightText"
             android:layout_marginLeft="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,9 +48,13 @@
 
 
         <EditText
+            android:id="@+id/id_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/password"
+            android:hint="@string/password"
+            android:ems="8"
+            android:inputType="textPassword"
+            android:textColorHint="@color/ColorLightText"
             style="@style/field"
             android:layout_marginLeft="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -56,6 +64,7 @@
 
 
         <Button
+            android:id="@+id/id_sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -67,6 +76,7 @@
             />
 
         <TextView
+            android:id="@+id/id_forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/forgot_password"
@@ -77,6 +87,7 @@
 
 
         <Button
+            android:id="@+id/id_create_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -86,8 +97,6 @@
             style="@style/button"
             android:layout_marginTop="10dp"
             />
-
-
 
     </LinearLayout>
 

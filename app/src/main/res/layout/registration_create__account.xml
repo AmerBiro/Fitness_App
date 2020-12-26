@@ -1,56 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/ColorPrimaryDark"
     tools:context=".registration.Create_Account">
 
     <TextView
+        android:id="@+id/textView"
+        style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Create_account"
-        style="@style/title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112"/>
+        app:layout_constraintVertical_bias="0.112" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="80dp"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
             android:layout_marginRight="50dp"
-            >
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/first_name"
-                style="@style/field"
-                />
-
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/id_first_name"
+                style="@style/field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/last_name"
-                style="@style/field"
                 android:layout_marginLeft="30dp"
+                android:ems="5"
+                android:hint="@string/first_name"
+                android:inputType="textAutoComplete"
+                android:textColorHint="@color/ColorLightText" />
+
+
+            <EditText
+                android:id="@+id/id_last_name"
+                style="@style/field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:ems="5"
+                android:hint="@string/last_name"
+                android:inputType="textAutoComplete"
+                android:textColorHint="@color/ColorLightText"
 
                 />
 
@@ -58,13 +66,16 @@
         </LinearLayout>
 
 
-
         <EditText
+            android:id="@+id/id_email"
+            style="@style/field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/email_Create_account"
-            style="@style/field"
             android:layout_marginLeft="33dp"
+            android:ems="11"
+            android:hint="@string/email_Create_account"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/ColorLightText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,22 +83,30 @@
 
 
         <EditText
+            android:id="@+id/id_password"
+            style="@style/field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/password_create_account"
-            style="@style/field"
             android:layout_marginLeft="33dp"
+            android:ems="11"
+            android:hint="@string/password_create_account"
+            android:inputType="textPassword"
+            android:textColorHint="@color/ColorLightText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:id="@+id/id_confirm_password"
+            style="@style/field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/confirm_password"
-            style="@style/field"
             android:layout_marginLeft="33dp"
+            android:ems="11"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/ColorLightText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -95,100 +114,92 @@
 
 
         <TextView
+            style="@style/sub_title"
             android:layout_width="240dp"
             android:layout_height="50dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="10dp"
             android:text="@string/date_of_birth"
-            style="@style/sub_title"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="33dp"
-            android:textAlignment="textStart"
-            />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/day"
-                    android:background="@drawable/button_small"
-                    style="@style/button"
-                    android:layout_marginLeft="33dp"
-                    />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/month"
-                    android:background="@drawable/button_small"
-                    style="@style/button"
-                    android:layout_marginLeft="33dp"
-                    />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/year"
-                    android:background="@drawable/button_small"
-                    style="@style/button"
-                    android:layout_marginLeft="33dp"
-                    />
-
-
-            </LinearLayout>
-
-
-        <TextView
-            android:layout_width="240dp"
-            android:layout_height="50dp"
-            android:text="@string/gender"
-            style="@style/sub_title"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="33dp"
-            android:textAlignment="textStart"
-            />
+            android:textAlignment="textStart" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
-            <RadioGroup
+            <Button
+                android:id="@+id/id_select_date"
+                style="@style/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/male"
-                    android:background="@drawable/button_medium"
-                    style="@style/button"
-                    android:textAllCaps="false"
-                    android:layout_marginLeft="33dp"
-                    android:paddingHorizontal="10dp"
-                    android:buttonTint="@color/ColorPrimary"
-                    />
+                android:layout_marginLeft="33dp"
+                android:background="@drawable/button_medium"
+                android:text="@string/select"
+                android:textAllCaps="false"
+                />
+
+            <TextView
+                android:id="@+id/id_date"
+                style="@style/field"
+                android:text="@string/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="33dp"
+                android:visibility="visible"
+                />
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            style="@style/sub_title"
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/gender"
+            android:textAlignment="textStart" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/id_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/Male"
                     style="@style/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="33dp"
                     android:background="@drawable/button_medium"
+                    android:buttonTint="@color/ColorPrimary"
+                    android:paddingHorizontal="10dp"
+                    android:text="@string/male"
+                    android:textAllCaps="false" />
+
+                <RadioButton
+                    android:id="@+id/Female"
+                    style="@style/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="33dp"
+                    android:background="@drawable/button_medium"
+                    android:buttonTint="@color/ColorPrimary"
                     android:paddingHorizontal="5dp"
                     android:text="@string/female"
-                    android:buttonTint="@color/ColorPrimary"
-                    android:textAllCaps="false"
-                    />
+                    android:textAllCaps="false" />
 
             </RadioGroup>
-
 
 
         </LinearLayout>
@@ -196,17 +207,27 @@
 
     </LinearLayout>
 
-    <Button
+    <TextView
+        android:id="@+id/id_gender_not_selected"
+        style="@style/forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next_body"
-        android:background="@drawable/button_wide"
-        android:textAllCaps="false"
-        style="@style/button"
+        android:layout_gravity="center"
+        android:layout_marginBottom="110dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <include
+        android:id="@+id/id_create_account_button"
+        layout="@layout/button_create_account"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
