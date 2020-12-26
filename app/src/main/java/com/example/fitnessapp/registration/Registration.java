@@ -1,5 +1,6 @@
 package com.example.fitnessapp.registration;
 
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -56,6 +58,13 @@ public class Registration extends Fragment {
             }
         });
 
+        binding.idForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAlertDialog();
+            }
+        });
+
         binding.idCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,5 +81,38 @@ public class Registration extends Fragment {
             Toast.makeText(getContext(), "100", 0).show();
     }
 
+    private void showAlertDialog() {
+        Dialog dialog = new Dialog(getActivity());
+        dialog.setContentView(R.layout.alert_dialog_forgot_password);
+
+        EditText editText = dialog.findViewById(R.id.id_email);
+        Button send_a_link = dialog.findViewById(R.id.id_send_a_link);
+        Button cancel = dialog.findViewById(R.id.id_cancel);
+
+        dialog.setCancelable(false);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
+        send_a_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (editText.getText().toString().isEmpty()) {
+                    editText.setError("Please, enter your email");
+                    return;
+                }else{
+                    Toast.makeText(getActivity(), "A link has been sent to you", 0).show();
+                    dialog.cancel();
+                }
+            }
+        });
+
+        dialog.show();
+
+    }
 
 }

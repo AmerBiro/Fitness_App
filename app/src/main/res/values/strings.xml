@@ -16,6 +16,12 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="create_account">Create account</string>
 
+    <string name="forgot_password_alert_dialog">Reseting Password </string>
+    <string name="forgot_password_text" >Please, enter your email address here to get a link to reset your password</string>
+    <string name="example" >123456@example.com</string>
+    <string name="send_a_link" >SEND A LINK</string>
+    <string name="cancel" >CANCEL</string>
+
 
     <string name="Platform">Select a platform</string>
     <string name="email_Platform">Email</string>
