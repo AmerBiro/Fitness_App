@@ -24,6 +24,7 @@ import com.example.fitnessapp.databinding.RegistrationCreateAccountBinding;
 import com.example.fitnessapp.functions.ButtonCreateAccount;
 import com.example.fitnessapp.functions.DatePicker;
 import com.example.fitnessapp.functions.FieldChecker;
+import com.example.fitnessapp.functions.User;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -35,6 +36,7 @@ public class Create_Account extends Fragment {
     private FieldChecker checker;
     private DatePicker datePicker;
     private ButtonCreateAccount buttonCreateAccount;
+    private User user;
     private EditText [] fields, password;
     private String [] errormessage;
     private NavController navController;
@@ -54,6 +56,7 @@ public class Create_Account extends Fragment {
         navController = Navigation.findNavController(view);
         checker = new FieldChecker();
         datePicker = new com.example.fitnessapp.functions.DatePicker();
+        user = new User();
         fields = new EditText[5];
         password = new EditText[2];
         errormessage = new String[5];
@@ -79,7 +82,7 @@ public class Create_Account extends Fragment {
             @Override
             public void onClick(View v) {
                 if (check())
-                    createAccount(v);
+                    user.createUser(v, fields[2].getText().toString(), fields[3].getText().toString());
             }
         });
 
@@ -102,26 +105,6 @@ public class Create_Account extends Fragment {
             return true;
         }
     }
-
-    public void createAccount(View v) {
-        buttonCreateAccount = new ButtonCreateAccount(getActivity(), v);
-        buttonCreateAccount.buttonActivited();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    buttonCreateAccount.buttonFinished();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            navController.navigate(R.id.action_create_Account_to_body2);
-                        }
-                    },1500);
-                }
-            },2000);
-    }
-
-
-
 
 
 }

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/alert_dialog_background"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="50dp"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alert_dialog_create_account_title"
+        style="@style/alert_dialog_title"
+
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+
+        <LinearLayout
+            android:id="@+id/create_Account_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:padding="8dp"
+            android:background="@drawable/list_programs_design"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alert_dialog_create_account_email"
+                style="@style/alert_dialog_sub_title_create_account"
+                />
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/icon_email"
+                android:layout_marginLeft="86dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/create_Account_microsoft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:padding="8dp"
+            android:background="@drawable/list_programs_design"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alert_dialog_create_account_microsoft"
+                style="@style/alert_dialog_sub_title_create_account"
+                />
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/icon_microsoft"
+                android:layout_marginLeft="50dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/create_Account_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:padding="8dp"
+            android:background="@drawable/list_programs_design"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alert_dialog_create_account_google"
+                style="@style/alert_dialog_sub_title_create_account"
+                />
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/icon_google"
+                android:layout_marginLeft="75dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/create_Account_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:padding="8dp"
+            android:background="@drawable/list_programs_design"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/alert_dialog_create_account_facebook"
+                style="@style/alert_dialog_sub_title_create_account"
+                />
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/icon_facebook"
+                android:layout_marginLeft="50dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/create_Account_cancel"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:text="@string/alert_dialog_create_account_cancel"
+        style="@style/alert_dialog_button"
+        android:background="@drawable/button_medium"
+        android:layout_marginTop="30dp"
+        />
+
+</LinearLayout>

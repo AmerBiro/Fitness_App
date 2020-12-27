@@ -16,18 +16,19 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="create_account">Create account</string>
 
-    <string name="forgot_password_alert_dialog">Reseting Password </string>
-    <string name="forgot_password_text" >Please, enter your email address here to get a link to reset your password</string>
-    <string name="example" >123456@example.com</string>
-    <string name="send_a_link" >SEND A LINK</string>
-    <string name="cancel" >CANCEL</string>
+    <string name="alert_dialog_forgot_password_title">Reseting Password</string>
+    <string name="alert_dialog_forgot_password_sub_title" >Please, enter your email address here to get a link to reset your password</string>
+    <string name="alert_dialog_forgot_password_field_example" >123456@example.com</string>
+    <string name="alert_dialog_forgot_password_send_a_link" >SEND A LINK</string>
+    <string name="alert_dialog_forgot_password_cancel" >CANCEL</string>
 
 
-    <string name="Platform">Select a platform</string>
-    <string name="email_Platform">Email</string>
-    <string name="microsoft">Microsoft</string>
-    <string name="google">Google</string>
-    <string name="facebook">Facebook</string>
+    <string name="alert_dialog_create_account_title" >Choose a platform</string>
+    <string name="alert_dialog_create_account_email">Email</string>
+    <string name="alert_dialog_create_account_microsoft">Microsoft</string>
+    <string name="alert_dialog_create_account_google">Google</string>
+    <string name="alert_dialog_create_account_facebook">Facebook</string>
+    <string name="alert_dialog_create_account_cancel">Cancel</string>
 
 
     <string name="Create_account">Create account</string>

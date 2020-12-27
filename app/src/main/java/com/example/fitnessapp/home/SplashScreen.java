@@ -9,6 +9,7 @@ import androidx.navigation.NavAction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +51,13 @@ public class SplashScreen extends Fragment {
         super.onStart();
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user == null){
-            navController.navigate(R.id.action_splashScreen_to_registration);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    navController.navigate(R.id.action_splashScreen_to_registration);
+                }
+            },2000);
+
 //            binding.status.setText("Creating Account...");
 //            firebaseAuth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 //                @Override
@@ -64,7 +71,13 @@ public class SplashScreen extends Fragment {
 //            });
         }else{
             binding.status.setText("Logged in...");
-            navController.navigate(R.id.action_splashScreen_to_home2);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    navController.navigate(R.id.action_splashScreen_to_home2);
+                }
+            },2000);
+
         }
     }
 }
