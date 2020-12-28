@@ -6,7 +6,9 @@
     android:layout_height="wrap_content"
     android:paddingBottom="30dp"
     android:layout_margin="20dp"
-    android:background="@drawable/list_programs_design">
+    android:background="@drawable/list_programs_design"
+    android:id="@+id/program_list_button"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -14,7 +16,7 @@
         app:cardCornerRadius="8dp"
         >
         <ImageView
-            android:id="@+id/placeholder_image"
+            android:id="@+id/program_list_image_placeholder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/image_placeholder"
@@ -23,7 +25,7 @@
 
 
     <TextView
-        android:id="@+id/list_program_title"
+        android:id="@+id/program_list_program_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/programs_name"
@@ -40,7 +42,7 @@
         >
 
         <TextView
-            android:id="@+id/list_program_days"
+            android:id="@+id/program_list_days"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/x_days"
@@ -49,7 +51,7 @@
             />
 
         <TextView
-            android:id="@+id/list_program_excercises"
+            android:id="@+id/program_list_exercises"
             style="@style/programs_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,7 +69,7 @@
         >
 
         <TextView
-            android:id="@+id/list_program_start_date"
+            android:id="@+id/program_list_start_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/start_date"
@@ -76,7 +78,7 @@
             />
 
         <TextView
-            android:id="@+id/list_program_end_date"
+            android:id="@+id/program_list_end_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/end_date"

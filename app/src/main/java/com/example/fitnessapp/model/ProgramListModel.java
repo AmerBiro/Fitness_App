@@ -7,21 +7,22 @@ public class ProgramListModel {
     @DocumentId
     private String program_id;
     private String program_name;
-    private long days, excercises;
-    private String start_date, end_date, program_image;
+    private long days, exercises;
+    private String start_date, end_date, program_image, visibility;
 
     public ProgramListModel() {
 
     }
 
-    public ProgramListModel(String program_id, String program_name, long days, long excercises, String start_date, String end_date, String program_image) {
+    public ProgramListModel(String program_id, String program_name, long days, long exercises, String start_date, String end_date, String program_image, String visibility) {
         this.program_id = program_id;
         this.program_name = program_name;
         this.days = days;
-        this.excercises = excercises;
+        this.exercises = exercises;
         this.start_date = start_date;
         this.end_date = end_date;
         this.program_image = program_image;
+        this.visibility = visibility;
     }
 
     public String getProgram_id() {
@@ -73,10 +74,10 @@ public class ProgramListModel {
     }
 
     public long getExcercises() {
-        return excercises;
+        return exercises;
     }
 
     public void setExcercises(long excercises) {
-        this.excercises = excercises;
+        this.exercises = excercises;
     }
 }

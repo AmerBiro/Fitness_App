@@ -1,5 +1,9 @@
 package com.example.fitnessapp.firebase_repo;
 
+import android.app.Activity;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 
 import com.example.fitnessapp.model.ProgramListModel;
@@ -13,10 +17,12 @@ import java.util.List;
 
 public class FirebaseRepository {
 
+    private String TAG = "";
+
     private OnFireStoreTaskComplete onFireStoreTaskComplete;
 
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    private CollectionReference programRef = firebaseFirestore.collection("program");
+    private CollectionReference programRef = firebaseFirestore.collection("ProgramList");
 
     public FirebaseRepository(OnFireStoreTaskComplete onFireStoreTaskComplete) {
         this.onFireStoreTaskComplete = onFireStoreTaskComplete;
