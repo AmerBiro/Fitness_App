@@ -81,7 +81,7 @@ public class Create_Account extends Fragment {
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (check())
+//                if (check())
                     user.createUser(v, fields[2].getText().toString(), fields[3].getText().toString());
             }
         });
