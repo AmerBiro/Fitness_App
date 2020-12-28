@@ -48,10 +48,10 @@ public class Home extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         programListViewModel = new ViewModelProvider(getActivity()).get(ProgramListViewModel.class);
         programListViewModel.getProgramListModelData().observe(getViewLifecycleOwner(), new Observer<List<ProgramListModel>>() {
             @Override
@@ -60,7 +60,5 @@ public class Home extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
-
-
     }
 }

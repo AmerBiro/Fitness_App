@@ -1,9 +1,5 @@
 package com.example.fitnessapp.firebase_repo;
 
-import android.app.Activity;
-import android.util.Log;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 
 import com.example.fitnessapp.model.ProgramListModel;
@@ -17,31 +13,30 @@ import java.util.List;
 
 public class FirebaseRepository {
 
-    private String TAG = "";
 
-    private OnFireStoreTaskComplete onFireStoreTaskComplete;
+    private OnFirestoreTaskComplete onFirestoreTaskComplete;
 
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private CollectionReference programRef = firebaseFirestore.collection("ProgramList");
 
-    public FirebaseRepository(OnFireStoreTaskComplete onFireStoreTaskComplete) {
-        this.onFireStoreTaskComplete = onFireStoreTaskComplete;
+    public FirebaseRepository(OnFirestoreTaskComplete onFirestoreTaskComplete) {
+        this.onFirestoreTaskComplete = onFirestoreTaskComplete;
     }
 
-    public void getProgramData(){
+    public void getQuizData() {
         programRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()){
-                    onFireStoreTaskComplete.programListDataAdded(task.getResult().toObjects(ProgramListModel.class));
-                }else {
-                    onFireStoreTaskComplete.onError(task.getException());
+                if(task.isSuccessful()){
+                    onFirestoreTaskComplete.programListDataAdded(task.getResult().toObjects(ProgramListModel.class));
+                } else {
+                    onFirestoreTaskComplete.onError(task.getException());
                 }
             }
         });
     }
 
-    public interface OnFireStoreTaskComplete{
+    public interface OnFirestoreTaskComplete{
         void programListDataAdded(List<ProgramListModel> programListModelsList);
         void onError(Exception e);
     }

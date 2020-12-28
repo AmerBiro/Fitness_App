@@ -10,18 +10,15 @@
     android:id="@+id/program_list_button"
     >
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:cardCornerRadius="8dp"
-        >
+
         <ImageView
             android:id="@+id/program_list_image_placeholder"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/image_placeholder"
+            android:layout_height="170dp"
+            android:background="@drawable/placeholder_image"
             />
-    </androidx.cardview.widget.CardView>
+
+
 
 
     <TextView
@@ -55,7 +52,7 @@
             style="@style/programs_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="75dp"
             android:text="@string/x_excercises" />
 
     </LinearLayout>
