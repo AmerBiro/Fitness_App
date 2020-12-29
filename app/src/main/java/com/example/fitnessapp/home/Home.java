@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -13,10 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.fitnessapp.R;
+import com.example.fitnessapp.functions.AlertDialogShower;
 import com.example.fitnessapp.mvvm.adapters.ProgramListAdapter;
 import com.example.fitnessapp.mvvm.model.ProgramListModel;
 import com.example.fitnessapp.mvvm.view_model.ProgramListViewModel;
+import com.google.android.material.bottomappbar.BottomAppBar;
 
 import java.util.List;
 
@@ -26,6 +31,7 @@ public class Home extends Fragment {
 
     private RecyclerView recyclerView;
     private ProgramListViewModel programListViewModel;
+    private AlertDialogShower shower;
 
     private ProgramListAdapter adapter;
 
@@ -36,6 +42,7 @@ public class Home extends Fragment {
         return view;
     }
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -44,8 +51,20 @@ public class Home extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
+        shower = new AlertDialogShower();
     }
 
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        binding.floatingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shower.addProgramDialog(getActivity());
+            }
+        });
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

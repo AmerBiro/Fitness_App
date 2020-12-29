@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="278dp"
+    android:layout_height="wrap_content"
     android:paddingBottom="30dp"
     android:layout_marginLeft="20dp"
     android:layout_marginTop="15dp"
@@ -13,13 +13,34 @@
     >
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        >
+
         <ImageView
             android:id="@+id/program_list_image_placeholder"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:background="@drawable/placeholder_image"
-            android:padding="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:translationZ="10dp"
+            android:background="@drawable/image_cover"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/program_list_program_name"
@@ -68,7 +89,6 @@
             android:layout_height="wrap_content"
             android:text="@string/start_date"
             style="@style/programs_list_recyclerview_sub_title"
-
             />
 
         <TextView
@@ -78,6 +98,7 @@
             android:text="@string/end_date"
             style="@style/programs_list_recyclerview_sub_title"
             />
+
     </LinearLayout>
 
 </LinearLayout>

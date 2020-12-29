@@ -77,6 +77,25 @@
     <string name="start_date">From: 01/01/2020</string>
     <string name="end_date">To:     01/04/2020</string>
 
+    <string name="create_program">Create a new program</string>
+    <string name="Program_name">Program’s name</string>
+    <string name="Program_name_example">Body bulding</string>
+    <string name="coatch_name">Coatch name</string>
+    <string name="coatch_name_example">Julian</string>
+    <string name="fitness_center">Fitness center</string>
+    <string name="fitness_center_example">SATS</string>
+    <string name="x_days">Number of days</string>
+    <string name="x_days_example">3</string>
+    <string name="x_exercises">Number of exercises</string>
+    <string name="x_exercises_example">27</string>
+    <string name="start_date_create_program">Start date</string>
+    <string name="end_date_create_program">End date</string>
+    <string name="start_date_example">22/01/2020</string>
+    <string name="end_date_example">22/05/2020</string>
+    <string name="create_program_button">Create</string>
+    <string name="cancel_create_program_button">Cancel</string>
+
+
 
 
 </resources>

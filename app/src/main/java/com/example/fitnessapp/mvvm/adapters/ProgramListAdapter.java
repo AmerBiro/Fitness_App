@@ -41,7 +41,12 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
         exercises = programListModels.get(position).getExercises();
         start_date = programListModels.get(position).getStart_date();
         end_date = programListModels.get(position).getEnd_date();
-        image_url = programListModels.get(position).getImage_url();
+        image_url = programListModels.get(position).getProgram_Image_url();
+
+        if (program_name.length() > 25){
+            program_name = program_name.substring(0, 25);
+            program_name = program_name + "...";
+        }
 
         holder.program_name.setText(program_name);
         holder.days_exercises.setText(days + " days" + " with " + exercises + " exercise");

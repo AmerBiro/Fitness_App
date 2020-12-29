@@ -109,4 +109,24 @@
         <item name="android:windowExitAnimation">@anim/alert_dialog_fade_out</item>
     </style>
 
+
+    <style name="program_title">
+        <item name="android:textColor">@color/ColorPrimary</item>
+        <item name="android:textSize" > 36sp </item>
+        <item name="fontFamily"> @font/crimson_text</item>
+    </style>
+
+    <style name="program_sub_title">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize" > 20sp </item>
+        <item name="fontFamily"> @font/work_sans</item>
+    </style>
+
+    <style name="program_field">
+        <item name="android:textColor">@color/ColorLightText</item>
+        <item name="android:textColorHint">@color/ColorLightText</item>
+        <item name="android:textSize" > 20sp </item>
+        <item name="fontFamily"> @font/work_sans</item>
+    </style>
+
 </resources>

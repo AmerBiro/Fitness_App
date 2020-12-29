@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/alert_dialog_background"
+    android:padding="30dp"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/program_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_program"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112"
+        android:paddingBottom="15dp"
+        />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/placeholder_image"
+                />
+
+            <Button
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_wide"
+                style="@style/button"
+                android:text="Select an image"
+                android:textAllCaps="false"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    style="@style/program_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/Program_name"
+                    android:textAlignment="textStart"
+                    />
+
+                <EditText
+                    android:id="@+id/create_program_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/program_field"
+                    android:ems="14"
+                    android:hint="@string/Program_name_example"
+                    android:inputType="text"
+                    android:textColorHint="@color/ColorLightText"
+                    />
+
+                <TextView
+                    style="@style/program_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/coatch_name"
+                    android:textAlignment="textStart"
+                    />
+
+                <EditText
+                    android:id="@+id/create_program_coatch_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/program_field"
+                    android:ems="14"
+                    android:hint="@string/coatch_name_example"
+                    android:inputType="text"
+                    android:textColorHint="@color/ColorLightText"
+                    />
+
+                <TextView
+                    style="@style/program_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/fitness_center"
+                    android:textAlignment="textStart"
+                    />
+
+                <EditText
+                    android:id="@+id/create_program_fitness_center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/program_field"
+                    android:ems="14"
+                    android:hint="@string/fitness_center_example"
+                    android:inputType="text"
+                    android:textColorHint="@color/ColorLightText"
+                    />
+
+                <TextView
+                    style="@style/program_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/x_days"
+                    android:textAlignment="textStart"
+                    />
+
+                <EditText
+                    android:id="@+id/create_program_days"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/program_field"
+                    android:ems="14"
+                    android:hint="@string/x_days_example"
+                    android:inputType="number"
+                    android:textColorHint="@color/ColorLightText"
+                    />
+
+                <TextView
+                    style="@style/program_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/x_exercises"
+                    android:textAlignment="textStart"
+                    />
+
+                <EditText
+                    android:id="@+id/create_program_exercises"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/program_field"
+                    android:ems="14"
+                    android:hint="@string/x_exercises_example"
+                    android:inputType="number"
+                    android:textColorHint="@color/ColorLightText"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="left"
+                    >
+                    <TextView
+                        style="@style/program_sub_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/start_date_create_program"
+                        android:textAlignment="textStart"
+                        />
+
+                    <TextView
+                        style="@style/program_sub_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="50dp"
+                        android:text="@string/end_date_create_program"
+                        android:textAlignment="textStart"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="left"
+                    >
+
+                    <EditText
+                        android:id="@+id/create_program_start_date"
+                        style="@style/program_field"
+                        android:inputType="date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/start_date_example"
+                        android:textAlignment="textStart"
+                        />
+
+                    <EditText
+                        android:id="@+id/create_program_end_date"
+                        style="@style/program_field"
+                        android:inputType="date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="30dp"
+                        android:hint="@string/end_date_example"
+                        android:textAlignment="textStart"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+                <Button
+                    android:id="@+id/cancel_create_program"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_medium"
+                    style="@style/button"
+                    android:text="@string/cancel_create_program_button"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="20dp"
+                    />
+
+                <Button
+                    android:id="@+id/create_program"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_medium"
+                    style="@style/button"
+                    android:text="@string/create_program_button"
+                    android:textAllCaps="false"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

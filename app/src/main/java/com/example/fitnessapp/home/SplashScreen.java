@@ -71,12 +71,13 @@ public class SplashScreen extends Fragment {
 //            });
         }else{
             binding.status.setText("Logged in...");
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    navController.navigate(R.id.action_splashScreen_to_home2);
-                }
-            },2000);
+//            new Handler().postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    navController.navigate(R.id.action_splashScreen_to_home2);
+//                }
+//            },2000);
+            navController.navigate(R.id.action_splashScreen_to_home2);
 
         }
     }

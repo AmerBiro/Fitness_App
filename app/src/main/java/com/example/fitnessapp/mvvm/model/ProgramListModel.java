@@ -8,8 +8,8 @@ public class ProgramListModel {
     private String program_id;
     private String program_name;
     private String days, exercises;
-    private String start_date, end_date, program_image;
-    private String image_url;
+    private String start_date, end_date;
+    private String program_image_url;
 
     public ProgramListModel() {
 
@@ -63,19 +63,12 @@ public class ProgramListModel {
         this.end_date = end_date;
     }
 
-    public String getProgram_image() {
-        return program_image;
+
+    public String getProgram_Image_url() {
+        return program_image_url;
     }
 
-    public void setProgram_image(String program_image) {
-        this.program_image = program_image;
-    }
-
-    public String getImage_url() {
-        return image_url;
-    }
-
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setProgram_Image_url(String image_url) {
+        this.program_image_url = image_url;
     }
 }
