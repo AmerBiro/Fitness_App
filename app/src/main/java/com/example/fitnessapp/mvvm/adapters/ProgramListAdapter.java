@@ -1,9 +1,8 @@
-package com.example.fitnessapp.adapters;
+package com.example.fitnessapp.mvvm.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -11,8 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.model.ProgramListModel;
+import com.example.fitnessapp.mvvm.model.ProgramListModel;
 
 
 import java.util.List;
@@ -34,11 +34,26 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProgramViewHolder holder, int position) {
-        holder.program_name.setText(programListModels.get(position).getProgram_name());
-        holder.days.setText(programListModels.get(position).getDays());
-        holder.exercises.setText(programListModels.get(position).getExercises());
-        holder.start_date.setText(programListModels.get(position).getStart_date());
-        holder.end_date.setText(programListModels.get(position).getEnd_date());
+        String program_name, days, exercises, start_date, end_date, image_url;
+
+        program_name = programListModels.get(position).getProgram_name();
+        days = programListModels.get(position).getDays();
+        exercises = programListModels.get(position).getExercises();
+        start_date = programListModels.get(position).getStart_date();
+        end_date = programListModels.get(position).getEnd_date();
+        image_url = programListModels.get(position).getImage_url();
+
+        holder.program_name.setText(program_name);
+        holder.days_exercises.setText(days + " days" + " with " + exercises + " exercise");
+        holder.start_date.setText("From: " + start_date);
+        holder.end_date.setText("To:     " + end_date);
+
+        Glide
+                .with(holder.itemView.getContext())
+                .load(image_url)
+                .centerCrop()
+                .placeholder(R.drawable.placeholder_image)
+                .into(holder.imageView);
     }
 
     @Override
@@ -51,16 +66,17 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
     }
 
     public class ProgramViewHolder extends RecyclerView.ViewHolder {
-        private TextView program_name, days, exercises, start_date, end_date;
+        private TextView program_name, days_exercises, start_date, end_date;
         private LinearLayout button;
+        private ImageView imageView;
 
 
         public ProgramViewHolder(@NonNull View itemView) {
             super(itemView);
 
             program_name = itemView.findViewById(R.id.program_list_program_name);
-            days = itemView.findViewById(R.id.program_list_days);
-            exercises = itemView.findViewById(R.id.program_list_exercises);
+            imageView = itemView.findViewById(R.id.program_list_image_placeholder);
+            days_exercises = itemView.findViewById(R.id.program_list_days_exercises);
             start_date = itemView.findViewById(R.id.program_list_start_date);
             end_date = itemView.findViewById(R.id.program_list_end_date);
             button = itemView.findViewById(R.id.program_list_button);

@@ -73,10 +73,9 @@
 
     <string name="Programs">Programs</string>
     <string name="programs_name">Weight losing</string>
-    <string name="x_days">3 days</string>
-    <string name="x_excercises">27 excercise</string>
-    <string name="start_date">01/01/2020</string>
-    <string name="end_date">01/04/2020</string>
+    <string name="days_exercises">x days with x exercise</string>
+    <string name="start_date">From: 01/01/2020</string>
+    <string name="end_date">To:     01/04/2020</string>
 
 
 

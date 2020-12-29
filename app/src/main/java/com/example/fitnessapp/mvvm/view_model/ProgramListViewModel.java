@@ -1,11 +1,11 @@
-package com.example.fitnessapp.view_model;
+package com.example.fitnessapp.mvvm.view_model;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.fitnessapp.firebase_repo.FirebaseRepository;
-import com.example.fitnessapp.model.ProgramListModel;
+import com.example.fitnessapp.mvvm.firebase_repo.FirebaseRepository;
+import com.example.fitnessapp.mvvm.model.ProgramListModel;
 
 import java.util.List;
 

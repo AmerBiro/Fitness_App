@@ -3,10 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="278dp"
     android:paddingBottom="30dp"
-    android:layout_margin="20dp"
-    android:background="@drawable/list_programs_design"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/program_list_recyclerview"
     android:id="@+id/program_list_button"
     >
 
@@ -14,46 +16,40 @@
         <ImageView
             android:id="@+id/program_list_image_placeholder"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="160dp"
             android:background="@drawable/placeholder_image"
+            android:padding="2dp"
             />
-
-
-
 
     <TextView
         android:id="@+id/program_list_program_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/programs_name"
-        style="@style/programs_list"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
+        style="@style/programs_list_recyclerview_title"
+        android:layout_gravity="left"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
         />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left"
         android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+
         >
 
+
         <TextView
-            android:id="@+id/program_list_days"
+            android:id="@+id/program_list_days_exercises"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/x_days"
-            style="@style/programs_list"
-
+            android:text="@string/days_exercises"
+            style="@style/programs_list_recyclerview_sub_title"
             />
-
-        <TextView
-            android:id="@+id/program_list_exercises"
-            style="@style/programs_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp"
-            android:text="@string/x_excercises" />
 
     </LinearLayout>
 
@@ -61,8 +57,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
         >
 
         <TextView
@@ -70,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/start_date"
-            style="@style/programs_list"
+            style="@style/programs_list_recyclerview_sub_title"
 
             />
 
@@ -79,8 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/end_date"
-            style="@style/programs_list"
-            android:layout_marginLeft="25dp"
+            style="@style/programs_list_recyclerview_sub_title"
             />
     </LinearLayout>
 

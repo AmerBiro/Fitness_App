@@ -1,8 +1,8 @@
-package com.example.fitnessapp.firebase_repo;
+package com.example.fitnessapp.mvvm.firebase_repo;
 
 import androidx.annotation.NonNull;
 
-import com.example.fitnessapp.model.ProgramListModel;
+import com.example.fitnessapp.mvvm.model.ProgramListModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;

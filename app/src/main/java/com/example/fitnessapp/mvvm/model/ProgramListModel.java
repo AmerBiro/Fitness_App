@@ -1,4 +1,4 @@
-package com.example.fitnessapp.model;
+package com.example.fitnessapp.mvvm.model;
 
 import com.google.firebase.firestore.DocumentId;
 
@@ -9,19 +9,10 @@ public class ProgramListModel {
     private String program_name;
     private String days, exercises;
     private String start_date, end_date, program_image;
+    private String image_url;
 
     public ProgramListModel() {
 
-    }
-
-    public ProgramListModel(String program_id, String program_name, String days, String exercises, String start_date, String end_date, String program_image) {
-        this.program_id = program_id;
-        this.program_name = program_name;
-        this.days = days;
-        this.exercises = exercises;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.program_image = program_image;
     }
 
     public String getProgram_id() {
@@ -78,5 +69,13 @@ public class ProgramListModel {
 
     public void setProgram_image(String program_image) {
         this.program_image = program_image;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 }

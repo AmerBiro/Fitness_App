@@ -1,6 +1,5 @@
 package com.example.fitnessapp.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,10 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.fitnessapp.R;
-import com.example.fitnessapp.adapters.ProgramListAdapter;
-import com.example.fitnessapp.model.ProgramListModel;
-import com.example.fitnessapp.view_model.ProgramListViewModel;
+import com.example.fitnessapp.mvvm.adapters.ProgramListAdapter;
+import com.example.fitnessapp.mvvm.model.ProgramListModel;
+import com.example.fitnessapp.mvvm.view_model.ProgramListViewModel;
 
 import java.util.List;
 
