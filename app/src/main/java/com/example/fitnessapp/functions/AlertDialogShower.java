@@ -11,11 +11,13 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.mvvm.model.ProgramListModel;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -114,9 +116,15 @@ public class AlertDialogShower {
                     FirebaseUser userID = firebaseAuth.getCurrentUser();
                     FirebaseFirestore fStore= FirebaseFirestore.getInstance();
 
-                    String programID = "" + System.currentTimeMillis();
+//                    String programID = "" + System.currentTimeMillis();
 
-                    DocumentReference documentReference = fStore.collection("ProgramList").document(programID);
+//                    DocumentReference documentReference = fStore.collection("ProgramList").document(programID);
+//                    DocumentReference documentReference = fStore.collection("users").document(userID.getUid()).collection("ProgramList").document(programID);
+
+                    CollectionReference programRef = FirebaseFirestore.getInstance().collection("users").document(userID.getUid()).collection("ProgramList");
+
+
+
                     Map<String, Object> program = new HashMap<>();
 
                     EditText program_name, days, exercises, start_date, end_date;
@@ -132,13 +140,20 @@ public class AlertDialogShower {
                     program.put("start_date", start_date.getText().toString());
                     program.put("end_date", end_date.getText().toString());
 
-                    documentReference.set(program).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d(CreateProgram, "CreateProgram: user profile is created for " + userID);
-                            dialog.cancel();
-                        }
-                    });
+                    programRef.add(program);
+
+//                    documentReference.set(program).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                        @Override
+//                        public void onSuccess(Void aVoid) {
+//                            Log.d(CreateProgram, "CreateProgram: user profile is created for " + userID);
+//                            dialog.cancel();
+//                        }
+//                    }).addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            Toast.makeText(activity, e.getMessage(), 1).show();
+//                        }
+//                    });
                 }
             });
         }

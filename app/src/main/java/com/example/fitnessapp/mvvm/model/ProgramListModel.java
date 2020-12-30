@@ -15,6 +15,16 @@ public class ProgramListModel {
 
     }
 
+    public ProgramListModel(String program_id, String program_name, String days, String exercises, String start_date, String end_date, String program_image_url) {
+        this.program_id = program_id;
+        this.program_name = program_name;
+        this.days = days;
+        this.exercises = exercises;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.program_image_url = program_image_url;
+    }
+
     public String getProgram_id() {
         return program_id;
     }

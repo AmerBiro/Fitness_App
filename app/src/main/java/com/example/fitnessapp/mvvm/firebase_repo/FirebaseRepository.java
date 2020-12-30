@@ -19,7 +19,12 @@ public class FirebaseRepository {
     private OnFirestoreTaskComplete onFirestoreTaskComplete;
 
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    private CollectionReference programRef = firebaseFirestore.collection("ProgramList");
+//    private CollectionReference programRef = firebaseFirestore.collection("ProgramList");
+
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = firebaseAuth.getCurrentUser();
+    private String userid = user.getUid();
+    private CollectionReference programRef = firebaseFirestore.collection("users").document(userid).collection("ProgramList");
 
     public FirebaseRepository(OnFirestoreTaskComplete onFirestoreTaskComplete) {
         this.onFirestoreTaskComplete = onFirestoreTaskComplete;
