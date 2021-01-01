@@ -7,6 +7,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitnessapp.R;
 import com.example.fitnessapp.functions.AlertDialogShower;
 import com.example.fitnessapp.mvvm.adapters.ProgramAdapter;
 import com.example.fitnessapp.mvvm.model.ProgramModel;
@@ -41,6 +44,7 @@ public class Home extends Fragment {
     private ProgramAdapter adapter;
     private RecyclerView recyclerView;
     private AlertDialogShower shower;
+    NavController navController;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +52,12 @@ public class Home extends Fragment {
         View view = binding.getRoot();
         shower = new AlertDialogShower();
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
     }
 
     @Override
@@ -60,7 +70,7 @@ public class Home extends Fragment {
         binding.floatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shower.addProgramDialog(getActivity());
+                navController.navigate(R.id.action_home2_to_createProgram);
             }
         });
     }

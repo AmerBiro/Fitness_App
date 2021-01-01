@@ -11,18 +11,20 @@ import java.util.Map;
 public class Program {
 
     private String program_name, program_name_key,
+            coach_name, coach_name_key,
+            fitness_center, fitness_center_key,
             days, days_key,
             exercises, exercises_key,
             start_date, start_date_key,
             end_date, end_date_key;
 
-    public Program(String program_name, String program_name_key,
-                   String days, String days_key,
-                   String exercises, String exercises_key,
-                   String start_date, String start_date_key,
-                   String end_date, String end_date_key) {
+    public Program(String program_name, String program_name_key, String coach_name, String coach_name_key, String fitness_center, String fitness_center_key, String days, String days_key, String exercises, String exercises_key, String start_date, String start_date_key, String end_date, String end_date_key) {
         this.program_name = program_name;
         this.program_name_key = program_name_key;
+        this.coach_name = coach_name;
+        this.coach_name_key = coach_name_key;
+        this.fitness_center = fitness_center;
+        this.fitness_center_key = fitness_center_key;
         this.days = days;
         this.days_key = days_key;
         this.exercises = exercises;
@@ -44,6 +46,8 @@ public class Program {
         Map<String, Object> program = new HashMap<>();
 
         program.put(program_name_key, this.program_name);
+        program.put(coach_name_key, this.coach_name);
+        program.put(fitness_center_key, this.fitness_center);
         program.put(days_key, this.days);
         program.put(exercises_key, this.exercises);
         program.put(start_date_key, this.start_date);
