@@ -106,11 +106,6 @@ public class AlertDialogShower {
                     FirebaseUser userID = firebaseAuth.getCurrentUser();
                     FirebaseFirestore fStore= FirebaseFirestore.getInstance();
 
-//                    String programID = "" + System.currentTimeMillis();
-
-//                    DocumentReference documentReference = fStore.collection("ProgramList").document(programID);
-//                    DocumentReference documentReference = fStore.collection("users").document(userID.getUid()).collection("ProgramList").document(programID);
-
                     CollectionReference programRef = FirebaseFirestore.getInstance().collection("users").document(userID.getUid()).collection("ProgramList");
 
 
@@ -132,18 +127,6 @@ public class AlertDialogShower {
 
                     programRef.add(program);
                     dialog.cancel();
-//                    documentReference.set(program).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                        @Override
-//                        public void onSuccess(Void aVoid) {
-//                            Log.d(CreateProgram, "CreateProgram: user profile is created for " + userID);
-//                            dialog.cancel();
-//                        }
-//                    }).addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            Toast.makeText(activity, e.getMessage(), 1).show();
-//                        }
-//                    });
                 }
             });
         }

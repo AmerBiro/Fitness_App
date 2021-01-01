@@ -17,13 +17,13 @@
     <string name="create_account">Create account</string>
 
     <string name="alert_dialog_forgot_password_title">Reseting Password</string>
-    <string name="alert_dialog_forgot_password_sub_title" >Please, enter your email address here to get a link to reset your password</string>
-    <string name="alert_dialog_forgot_password_field_example" >123456@example.com</string>
-    <string name="alert_dialog_forgot_password_send_a_link" >SEND A LINK</string>
-    <string name="alert_dialog_forgot_password_cancel" >CANCEL</string>
+    <string name="alert_dialog_forgot_password_sub_title">Please, enter your email address here to get a link to reset your password</string>
+    <string name="alert_dialog_forgot_password_field_example">123456@example.com</string>
+    <string name="alert_dialog_forgot_password_send_a_link">SEND A LINK</string>
+    <string name="alert_dialog_forgot_password_cancel">CANCEL</string>
 
 
-    <string name="alert_dialog_create_account_title" >Choose a platform</string>
+    <string name="alert_dialog_create_account_title">Choose a platform</string>
     <string name="alert_dialog_create_account_email">Email</string>
     <string name="alert_dialog_create_account_microsoft">Microsoft</string>
     <string name="alert_dialog_create_account_google">Google</string>
@@ -70,7 +70,6 @@
     <string name="done">Done</string>
 
 
-
     <string name="Programs">Programs</string>
     <string name="programs_name">Weight losing</string>
     <string name="days_exercises">x days with x exercise</string>
@@ -94,8 +93,6 @@
     <string name="end_date_example">22/05/2020</string>
     <string name="create_program_button">Create</string>
     <string name="cancel_create_program_button">Cancel</string>
-
-
 
 
 </resources>

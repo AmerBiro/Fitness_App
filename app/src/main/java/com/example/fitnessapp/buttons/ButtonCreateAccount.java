@@ -1,4 +1,4 @@
-package com.example.fitnessapp.functions;
+package com.example.fitnessapp.buttons;
 
 import android.app.Activity;
 import android.view.View;

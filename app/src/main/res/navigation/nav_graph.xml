@@ -83,6 +83,19 @@
         android:id="@+id/home2"
         android:name="com.example.fitnessapp.home.Home"
         android:label="home_home"
-        tools:layout="@layout/home_home" />
+        tools:layout="@layout/home_home" >
+        <action
+            android:id="@+id/action_home2_to_createProgram"
+            app:destination="@id/createProgram" />
+    </fragment>
+    <fragment
+        android:id="@+id/createProgram"
+        android:name="com.example.fitnessapp.program.CreateProgram"
+        android:label="program_create_program"
+        tools:layout="@layout/program_create_program" >
+        <action
+            android:id="@+id/action_createProgram_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
 
 </navigation>

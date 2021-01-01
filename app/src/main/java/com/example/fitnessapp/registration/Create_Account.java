@@ -1,8 +1,5 @@
 package com.example.fitnessapp.registration;
 
-import android.app.DatePickerDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,23 +8,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.databinding.RegistrationCreateAccountBinding;
-import com.example.fitnessapp.functions.ButtonCreateAccount;
+import com.example.fitnessapp.buttons.ButtonCreateAccount;
 import com.example.fitnessapp.functions.DatePicker;
 import com.example.fitnessapp.functions.FieldChecker;
 import com.example.fitnessapp.functions.User;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class Create_Account extends Fragment {
 
