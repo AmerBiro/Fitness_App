@@ -2,8 +2,6 @@ package com.example.fitnessapp.functions;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.icu.util.Calendar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,23 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.mvvm.model.ProgramListModel;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -141,7 +131,7 @@ public class AlertDialogShower {
                     program.put("end_date", end_date.getText().toString());
 
                     programRef.add(program);
-
+                    dialog.cancel();
 //                    documentReference.set(program).addOnSuccessListener(new OnSuccessListener<Void>() {
 //                        @Override
 //                        public void onSuccess(Void aVoid) {

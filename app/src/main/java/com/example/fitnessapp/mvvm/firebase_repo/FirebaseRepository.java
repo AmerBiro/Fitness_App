@@ -2,7 +2,7 @@ package com.example.fitnessapp.mvvm.firebase_repo;
 
 import androidx.annotation.NonNull;
 
-import com.example.fitnessapp.mvvm.model.ProgramListModel;
+import com.example.fitnessapp.mvvm.model.ProgramModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,13 +18,10 @@ public class FirebaseRepository {
 
     private OnFirestoreTaskComplete onFirestoreTaskComplete;
 
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseUser user = firebaseAuth.getCurrentUser();
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-//    private CollectionReference programRef = firebaseFirestore.collection("ProgramList");
-
-    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    FirebaseUser user = firebaseAuth.getCurrentUser();
-    private String userid = user.getUid();
-    private CollectionReference programRef = firebaseFirestore.collection("users").document(userid).collection("ProgramList");
+    private CollectionReference programRef = firebaseFirestore.collection("users").document(user.getUid()).collection("ProgramList");
 
     public FirebaseRepository(OnFirestoreTaskComplete onFirestoreTaskComplete) {
         this.onFirestoreTaskComplete = onFirestoreTaskComplete;
@@ -35,7 +32,7 @@ public class FirebaseRepository {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()){
-                    onFirestoreTaskComplete.programListDataAdded(task.getResult().toObjects(ProgramListModel.class));
+                    onFirestoreTaskComplete.programListDataAdded(task.getResult().toObjects(ProgramModel.class));
                 } else {
                     onFirestoreTaskComplete.onError(task.getException());
                 }
@@ -44,7 +41,7 @@ public class FirebaseRepository {
     }
 
     public interface OnFirestoreTaskComplete{
-        void programListDataAdded(List<ProgramListModel> programListModelsList);
+        void programListDataAdded(List<ProgramModel> programListModels);
         void onError(Exception e);
     }
 

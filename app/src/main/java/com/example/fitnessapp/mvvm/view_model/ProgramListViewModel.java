@@ -5,16 +5,16 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.fitnessapp.mvvm.firebase_repo.FirebaseRepository;
-import com.example.fitnessapp.mvvm.model.ProgramListModel;
+import com.example.fitnessapp.mvvm.model.ProgramModel;
 
 import java.util.List;
 
 
 public class ProgramListViewModel extends ViewModel implements FirebaseRepository.OnFirestoreTaskComplete {
 
-    private MutableLiveData<List<ProgramListModel>> programListModelData = new MutableLiveData<>();
+    private MutableLiveData<List<ProgramModel>> programListModelData = new MutableLiveData<>();
 
-    public LiveData<List<ProgramListModel>> getProgramListModelData() {
+    public LiveData<List<ProgramModel>> getProgramListModelData() {
         return programListModelData;
     }
 
@@ -25,8 +25,8 @@ public class ProgramListViewModel extends ViewModel implements FirebaseRepositor
     }
 
     @Override
-    public void programListDataAdded(List<ProgramListModel> programListModelsList) {
-        programListModelData.setValue(programListModelsList);
+    public void programListDataAdded(List<ProgramModel> programListModels) {
+        programListModelData.setValue(programListModels);
     }
 
     @Override
