@@ -81,5 +81,11 @@ public class ProgramAdapter extends FirestoreRecyclerAdapter <ProgramModel, Prog
         getSnapshots().getSnapshot(position).getReference().delete();
     }
 
+    public String getProgramId(){
+        getSnapshots().getSnapshot(0).getReference();
+        String programId = getSnapshots().getSnapshot(0).getReference().getId();
+        return programId;
+    }
+
 
 }
