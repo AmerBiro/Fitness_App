@@ -16,9 +16,11 @@ public class Program {
             days, days_key,
             exercises, exercises_key,
             start_date, start_date_key,
-            end_date, end_date_key;
+            end_date, end_date_key,
+            image;
 
-    public Program(String program_name, String program_name_key, String coach_name, String coach_name_key, String fitness_center, String fitness_center_key, String days, String days_key, String exercises, String exercises_key, String start_date, String start_date_key, String end_date, String end_date_key) {
+    public Program(String program_name, String program_name_key, String coach_name, String coach_name_key, String fitness_center, String fitness_center_key, String days, String days_key, String exercises, String exercises_key, String start_date, String start_date_key, String end_date, String end_date_key,
+                    String image) {
         this.program_name = program_name;
         this.program_name_key = program_name_key;
         this.coach_name = coach_name;
@@ -33,6 +35,7 @@ public class Program {
         this.start_date_key = start_date_key;
         this.end_date = end_date;
         this.end_date_key = end_date_key;
+        this.image = image;
     }
 
     public void createProgram() {
@@ -52,6 +55,7 @@ public class Program {
         program.put(exercises_key, this.exercises);
         program.put(start_date_key, this.start_date);
         program.put(end_date_key, this.end_date);
+        program.put("program_image_url", this.image);
 
         programRef.add(program);
 
