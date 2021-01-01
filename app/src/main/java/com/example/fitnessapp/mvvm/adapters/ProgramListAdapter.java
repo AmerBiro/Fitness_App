@@ -32,6 +32,10 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
         return new ProgramViewHolder(view);
     }
 
+    public void deleteProgram(int position){
+
+    }
+
     @Override
     public void onBindViewHolder(@NonNull ProgramViewHolder holder, int position) {
         String program_name, days, exercises, start_date, end_date, image_url;
