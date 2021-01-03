@@ -12,10 +12,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.fitnessapp.R;
 import com.example.fitnessapp.databinding.RegistrationRegistrationBinding;
 import com.example.fitnessapp.functions.AlertDialogShower;
 import com.example.fitnessapp.functions.FieldChecker;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class Registration extends Fragment {
@@ -26,6 +33,8 @@ public class Registration extends Fragment {
     private AlertDialogShower shower;
     private EditText [] fields;
     private String [] errormessage;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +53,8 @@ public class Registration extends Fragment {
         errormessage = new String[2];
         fields[0] = binding.idUsername; fields[1] = binding.idPassword;
         errormessage[0] = "Invalid username"; errormessage[1] = "Invalid password";
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
     }
 
     @Override
@@ -76,6 +87,22 @@ public class Registration extends Fragment {
     public void check(){
         if (checker.isEmpty(fields, errormessage))
             return;
+        else{
+            firebaseAuth.signInWithEmailAndPassword(fields[0].getText().toString(), fields[1].getText().toString())
+                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            navController.navigate(R.id.action_registration_to_home2);
+                            Toast.makeText(getContext(), "A new account is created successfully", 0).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getContext(), e.getMessage(), 0).show();
+                    return;
+                }
+            });
+        }
     }
 
 }

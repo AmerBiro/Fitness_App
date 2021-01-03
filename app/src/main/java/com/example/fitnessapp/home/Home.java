@@ -5,8 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -19,9 +17,8 @@ import android.view.ViewGroup;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.functions.AlertDialogShower;
-import com.example.fitnessapp.mvvm.adapters.ProgramAdapter;
-import com.example.fitnessapp.mvvm.model.ProgramModel;
-import com.example.fitnessapp.mvvm.view_model.ProgramListViewModel;
+import com.example.fitnessapp.mvvm.ProgramAdapter;
+import com.example.fitnessapp.mvvm.ProgramModel;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,12 +26,9 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-import java.util.List;
-
 public class Home extends Fragment {
 
-    private @NonNull
-    com.example.fitnessapp.databinding.HomeHomeBinding binding;
+    private @NonNull com.example.fitnessapp.databinding.HomeHomeBinding binding;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;

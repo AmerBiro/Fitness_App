@@ -1,4 +1,4 @@
-package com.example.fitnessapp.mvvm.model;
+package com.example.fitnessapp.mvvm;
 
 import com.google.firebase.firestore.DocumentId;
 
@@ -7,6 +7,7 @@ public class ProgramModel {
     @DocumentId
     private String program_id;
     private String program_name;
+    private String coach_name, fitness_center;
     private String days, exercises;
     private String start_date, end_date;
     private String program_image_url;
@@ -53,4 +54,7 @@ public class ProgramModel {
         return program_image_url;
     }
 
+    public void setProgram_name(String program_name) {
+        this.program_name = program_name;
+    }
 }

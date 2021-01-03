@@ -34,6 +34,9 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             />
+        <action
+            android:id="@+id/action_registration_to_home2"
+            app:destination="@id/home2" />
     </fragment>
 
     <fragment
@@ -90,7 +93,7 @@
     </fragment>
     <fragment
         android:id="@+id/createProgram"
-        android:name="com.example.fitnessapp.program.CreateProgram"
+        android:name="com.example.fitnessapp.program.CreateProgramFragment"
         android:label="program_create_program"
         tools:layout="@layout/program_create_program" >
         <action

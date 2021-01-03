@@ -8,7 +8,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Program {
+public class CreateProgram {
 
     private String program_name, program_name_key,
             coach_name, coach_name_key,
@@ -19,8 +19,8 @@ public class Program {
             end_date, end_date_key,
             image;
 
-    public Program(String program_name, String program_name_key, String coach_name, String coach_name_key, String fitness_center, String fitness_center_key, String days, String days_key, String exercises, String exercises_key, String start_date, String start_date_key, String end_date, String end_date_key,
-                    String image) {
+    public CreateProgram(String program_name, String program_name_key, String coach_name, String coach_name_key, String fitness_center, String fitness_center_key, String days, String days_key, String exercises, String exercises_key, String start_date, String start_date_key, String end_date, String end_date_key,
+                         String image) {
         this.program_name = program_name;
         this.program_name_key = program_name_key;
         this.coach_name = coach_name;
@@ -46,6 +46,7 @@ public class Program {
                 .collection("users").document(userId)
                 .collection("ProgramList");
 
+
         Map<String, Object> program = new HashMap<>();
 
         program.put(program_name_key, this.program_name);
@@ -58,7 +59,6 @@ public class Program {
         program.put("program_image_url", this.image);
 
         programRef.add(program);
-
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.fitnessapp.mvvm.adapters;
+package com.example.fitnessapp.mvvm;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.mvvm.model.ProgramModel;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-
-import java.util.List;
 
 public class ProgramAdapter extends FirestoreRecyclerAdapter <ProgramModel, ProgramAdapter.ProgramViewHolder> {
 
@@ -80,12 +77,5 @@ public class ProgramAdapter extends FirestoreRecyclerAdapter <ProgramModel, Prog
     public void deleteItem(int position){
         getSnapshots().getSnapshot(position).getReference().delete();
     }
-
-    public String getProgramId(){
-        getSnapshots().getSnapshot(0).getReference();
-        String programId = getSnapshots().getSnapshot(0).getReference().getId();
-        return programId;
-    }
-
 
 }

@@ -1,4 +1,4 @@
-package com.example.fitnessapp.functions;
+package com.example.fitnessapp.database;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -25,21 +25,8 @@ import java.util.Map;
 public class ImageHandler {
 
     private String imageString;
-    private Uri imageUri;
-
-
-
-    public Uri getImageUriFromGallery(Intent imageIntent) {
-        this.imageUri = imageIntent.getData();
-        return imageUri;
-    }
-
-
-
-
 
     public void uploadeImageToFirebase(Intent data, Activity activity, ImageView imageView){
-
         Uri imageUri = data.getData();
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -80,6 +67,7 @@ public class ImageHandler {
     public String getImageUri(){
         return imageString;
     }
+
 
 
 }
