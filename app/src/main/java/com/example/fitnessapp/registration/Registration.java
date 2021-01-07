@@ -61,10 +61,10 @@ public class Registration extends Fragment {
     public void onStart() {
         super.onStart();
 
-        binding.idSignIn.setOnClickListener(new View.OnClickListener() {
+        binding.signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                check();
+                signIn();
             }
         });
 
@@ -84,7 +84,7 @@ public class Registration extends Fragment {
 
     }
 
-    public void check(){
+    public void signIn(){
         if (checker.isEmpty(fields, errormessage))
             return;
         else{
