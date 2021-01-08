@@ -110,5 +110,11 @@
     <string name="day_list_single_item_name">Shoulders</string>
 
 
+    <string name="create_day_number">Day number</string>
+    <string name="create_day_name">Day name</string>
+    <string name="create_day_exercises_number">Number of exercises</string>
+    <string name="create_day_create">Add</string>
+
+
 
 </resources>

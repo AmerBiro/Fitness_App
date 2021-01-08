@@ -112,6 +112,10 @@
             android:name="position"
             app:argType="integer"
             android:defaultValue="0" />
+        <argument
+            android:name="programListId"
+            app:argType="string"
+            android:defaultValue="null" />
     </fragment>
     <fragment
         android:id="@+id/currentProgramViwer"

@@ -13,26 +13,60 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.databinding.DayDayListViwerBinding;
+import com.example.fitnessapp.functions.AlertDialogShower;
+import com.example.fitnessapp.mvvm.DayListAdapter;
+import com.example.fitnessapp.mvvm.DayListModel;
+import com.example.fitnessapp.mvvm.ProgramListAdapter;
+import com.example.fitnessapp.mvvm.ProgramListModel;
+import com.example.fitnessapp.mvvm.ProgramListViewModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
 
-public class DayListViwer extends Fragment implements View.OnClickListener {
+public class DayListViwer extends Fragment implements View.OnClickListener, DayListAdapter.OnDayListItemClicked {
 
     private @NonNull
     DayDayListViwerBinding
-     binding;
+            binding;
     private NavController controller;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
+    private FirebaseFirestore firebaseFirestore;
+    private ProgramListViewModel programListViewModel;
     private int position;
+    private String userId;
+    private List<DayListModel> dayListModels = new ArrayList<>();
+    private String programListId;
+    private AlertDialogShower shower;
+
+    private RecyclerView recyclerView;
+    private DayListAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,28 +78,79 @@ public class DayListViwer extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        controller = Navigation.findNavController(view);
         position = DayListViwerArgs.fromBundle(getArguments()).getPosition();
+        controller = Navigation.findNavController(view);
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        shower = new AlertDialogShower(getActivity(),view);
+        recyclerViewSetup();
+    }
+
+
+
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        programListViewModel = new ViewModelProvider(getActivity()).get(ProgramListViewModel.class);
+        programListViewModel.getProgramListModelData().observe(getViewLifecycleOwner(), new Observer<List<ProgramListModel>>() {
+            @Override
+            public void onChanged(List<ProgramListModel> programListModels) {
+                userId = firebaseUser.getUid();
+                programListId = programListModels.get(position).getProgramListId();
+                Query dayListRef = firebaseFirestore
+                        .collection("user").document(userId)
+                        .collection("ProgramList").document(programListId)
+                        .collection("DayList").orderBy("day_number");
+
+                dayListRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        Log.d(TAG, "onEvent: " + value.getDocumentChanges().toString());
+                        dayListModels = value.toObjects(DayListModel.class);
+//                        Log.d(TAG, "daySize: " + dayListModels.size());
+                        adapter.setDayListModels(dayListModels);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
         binding.about.setOnClickListener(this);
+        binding.addDay.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.about:
                 DayListViwerDirections.ActionDayListViwerToCurrentProgramViwer action =
                         DayListViwerDirections.actionDayListViwerToCurrentProgramViwer();
                 action.setPosition(position);
                 controller.navigate(action);
                 break;
+            case R.id.add_day:
+                shower.addDay(userId, programListId);
             default:
         }
+    }
+
+    private void recyclerViewSetup() {
+        recyclerView = binding.dayListRecyclerView;
+        adapter = new DayListAdapter(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClicked(int position) {
+        Log.d(TAG, "dayListOnItemClicked: " + position);
     }
 }
