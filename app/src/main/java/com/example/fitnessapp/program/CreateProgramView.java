@@ -65,13 +65,6 @@ public class CreateProgramView extends Fragment {
             }
         });
 
-        binding.cancelCreateProgram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_createProgram_to_home2);
-            }
-        });
-
         binding.selectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/ColorPrimaryDark"
-    tools:context=".registration.Body">
-
+    tools:context=".registration.Body"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Body"
         style="@style/title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"
-        app:layout_constraintVertical_bias="0.112"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
         >
 
@@ -36,10 +28,6 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:orientation="vertical"
             >
             <TextView
@@ -54,9 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/height_"
-                style="@style/button"
-                android:background="@drawable/button_small"
-                android:textAllCaps="false"
+                style="@style/button_small"
                 android:layout_marginTop="5dp"
                 />
 
@@ -80,9 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/weight_"
-                style="@style/button"
-                android:background="@drawable/button_small"
-                android:textAllCaps="false"
+                style="@style/button_small"
                 android:layout_marginTop="5dp"
                 />
 
@@ -91,10 +75,6 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:orientation="vertical"
             android:layout_marginLeft="33dp"
             >
@@ -110,9 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/age_"
-                style="@style/button"
-                android:background="@drawable/button_small"
-                android:textAllCaps="false"
+                style="@style/button_small"
                 android:layout_marginTop="5dp"
                 />
 
@@ -124,13 +102,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next_body"
-        android:background="@drawable/button_wide"
-        android:textAllCaps="false"
-        style="@style/button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"
+        style="@style/button_wide"
+        android:layout_marginTop="30dp"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

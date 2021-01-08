@@ -7,7 +7,7 @@
     android:layout_marginLeft="20dp"
     android:layout_marginTop="15dp"
     android:layout_marginRight="20dp"
-    android:background="@drawable/program_list_recyclerview"
+    android:background="@drawable/program_list_single_item"
     android:orientation="vertical"
     android:paddingBottom="30dp">
 
@@ -25,7 +25,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <View
             android:layout_width="wrap_content"
@@ -43,9 +44,6 @@
         style="@style/program_list_single_item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
         android:text="@string/programs_name"
         />
 
@@ -54,7 +52,8 @@
         style="@style/program_list_single_item_sub_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/days_exercises" />
+        android:text="@string/days_exercises"
+        />
 
 
     <TextView

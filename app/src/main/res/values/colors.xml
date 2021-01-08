@@ -14,5 +14,6 @@
     <color name="ColorLightText">#929292</color>
     <color name="ColorAccentDark">#1E1E3C</color>
     <color name="white">#FFFFFF</color>
+    <color name="BottomAppBar">#888652</color>
 
 </resources>

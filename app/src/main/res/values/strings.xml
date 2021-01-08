@@ -77,6 +77,7 @@
     <string name="end_date">To:     01/04/2020</string>
 
     <string name="create_program">Create a new program</string>
+    <string name="create_select_image">Choose an image</string>
     <string name="Program_name">Program’s name</string>
     <string name="Program_name_example">Body bulding</string>
     <string name="coatch_name">Coatch name</string>
@@ -93,6 +94,13 @@
     <string name="end_date_example">22/05/2020</string>
     <string name="create_program_button">Create</string>
     <string name="cancel_create_program_button">Cancel</string>
+
+
+    <string name="about_program_title">About</string>
+    <string name="about_program_edit">Edit</string>
+
+
+    <string name="day_title">Days</string>
 
 
 </resources>

@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".program.ProgramListViwer"
-    android:background="@color/ColorPrimaryDark">
+    android:background="@color/ColorPrimaryDark"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/ColorPrimaryDark"
+        app:backgroundTint="@color/ColorLightText"
         style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
         app:fabAlignmentMode="end"
         />
@@ -64,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_floating_button"
-        app:backgroundTint="@color/ColorAccentDark"
+        style="@style/BottomAppBar"
         app:layout_anchor="@id/bottomAppBar"
         />
 
