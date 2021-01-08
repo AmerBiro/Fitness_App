@@ -47,9 +47,6 @@
         <action
             android:id="@+id/action_create_Account_to_body2"
             app:destination="@id/body2" />
-        <action
-            android:id="@+id/action_create_Account_to_registration"
-            app:destination="@id/registration" />
     </fragment>
 
     <fragment
@@ -90,6 +87,9 @@
         <action
             android:id="@+id/action_home2_to_createProgram"
             app:destination="@id/createProgram" />
+        <action
+            android:id="@+id/action_home2_to_dayListViwer"
+            app:destination="@id/dayListViwer" />
     </fragment>
     <fragment
         android:id="@+id/createProgram"
@@ -99,6 +99,29 @@
         <action
             android:id="@+id/action_createProgram_to_home2"
             app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/dayListViwer"
+        android:name="com.example.fitnessapp.day.DayListViwer"
+        android:label="day_day_list_viwer"
+        tools:layout="@layout/day_day_list_viwer" >
+        <action
+            android:id="@+id/action_dayListViwer_to_currentProgramViwer"
+            app:destination="@id/currentProgramViwer" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/currentProgramViwer"
+        android:name="com.example.fitnessapp.program.CurrentProgramViwer"
+        android:label="program_current_program_viwer"
+        tools:layout="@layout/program_current_program_viwer" >
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
 </navigation>

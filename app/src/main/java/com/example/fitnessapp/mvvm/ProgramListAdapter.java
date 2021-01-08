@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,9 +15,14 @@ import com.example.fitnessapp.R;
 
 import java.util.List;
 
-public class ProgramListAdapter extends RecyclerView.Adapter <ProgramListAdapter.StudentViewHolder> {
+public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.StudentViewHolder> {
 
     private List<ProgramListModel> programListModels;
+    private OnProgramListItemClicked onProgramListItemClicked;
+
+    public ProgramListAdapter(OnProgramListItemClicked onProgramListItemClicked) {
+        this.onProgramListItemClicked = onProgramListItemClicked;
+    }
 
     public void setProgramListModels(List<ProgramListModel> programListModels) {
         this.programListModels = programListModels;
@@ -39,7 +45,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter <ProgramListAdapter
         start_date = programListModels.get(position).getStart_date();
         end_date = programListModels.get(position).getEnd_date();
 
-        if (name.length() > 25){
+        if (name.length() > 25) {
             name = name.substring(0, 25);
             name = name + "...";
         }
@@ -59,7 +65,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter <ProgramListAdapter
 
     @Override
     public int getItemCount() {
-        if(programListModels == null){
+        if (programListModels == null) {
             return 0;
         } else {
             return programListModels.size();
@@ -67,7 +73,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter <ProgramListAdapter
     }
 
 
-    public class StudentViewHolder extends RecyclerView.ViewHolder {
+    public class StudentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView name, days_exercises, start_date, end_date;
         private ImageView imageView;
 
@@ -79,6 +85,18 @@ public class ProgramListAdapter extends RecyclerView.Adapter <ProgramListAdapter
             start_date = itemView.findViewById(R.id.program_list_single_item_start_date);
             end_date = itemView.findViewById(R.id.program_list_single_item_end_date);
             imageView = itemView.findViewById(R.id.program_list_single_item_image_placeholder);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onProgramListItemClicked.onItemClicked(getAdapterPosition());
         }
     }
+
+    public interface OnProgramListItemClicked {
+        public void onItemClicked(int position);
+    }
+
 }

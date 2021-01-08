@@ -101,6 +101,14 @@
 
 
     <string name="day_title">Days</string>
+    <string name="day_about">About</string>
+    <string name="day_add_day">Add day</string>
+
+
+
+    <string name="day_list_single_item_day_exercise">Day 1, 6 exercise</string>
+    <string name="day_list_single_item_name">Shoulders</string>
+
 
 
 </resources>

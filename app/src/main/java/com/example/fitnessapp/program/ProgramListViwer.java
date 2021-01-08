@@ -26,7 +26,7 @@ import com.example.fitnessapp.mvvm.ProgramListViewModel;
 
 import java.util.List;
 
-public class ProgramListViwer extends Fragment {
+public class ProgramListViwer extends Fragment implements ProgramListAdapter.OnProgramListItemClicked {
 
     private @NonNull
     ProgramProgramListViwerBinding binding;
@@ -50,7 +50,7 @@ public class ProgramListViwer extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         controller = Navigation.findNavController(view);
         recyclerView = binding.programListRecyclerView;
-        adapter = new ProgramListAdapter();
+        adapter = new ProgramListAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
@@ -83,5 +83,13 @@ public class ProgramListViwer extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
+    }
+
+    @Override
+    public void onItemClicked(int position) {
+        ProgramListViwerDirections.ActionHome2ToDayListViwer action =
+                ProgramListViwerDirections.actionHome2ToDayListViwer();
+        action.setPosition(position);
+        controller.navigate(action);
     }
 }
