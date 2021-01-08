@@ -17,10 +17,10 @@ import android.view.ViewGroup;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.database.CreateProgram;
-import com.example.fitnessapp.databinding.ProgramCreateProgramBinding;
 import com.example.fitnessapp.database.ImageHandler;
+import com.example.fitnessapp.databinding.ProgramCreateProgramBinding;
 
-public class CreateProgramFragment extends Fragment {
+public class CreateProgramView extends Fragment {
 
     private @NonNull ProgramCreateProgramBinding binding;
     private CreateProgram createProgram;

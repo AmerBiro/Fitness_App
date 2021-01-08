@@ -9,7 +9,7 @@
         android:id="@+id/splashScreen"
         android:name="com.example.fitnessapp.registration.SplashScreen"
         android:label="home_splash_screen"
-        tools:layout="@layout/home_splash_screen" >
+        tools:layout="@layout/registration_splash_screen" >
         <action
             android:id="@+id/action_splashScreen_to_registration"
             app:destination="@id/registration"
@@ -84,16 +84,16 @@
 
     <fragment
         android:id="@+id/home2"
-        android:name="com.example.fitnessapp.home.Home"
+        android:name="com.example.fitnessapp.program.ProgramListViwer"
         android:label="home_home"
-        tools:layout="@layout/home_home" >
+        tools:layout="@layout/program_program_list_viwer" >
         <action
             android:id="@+id/action_home2_to_createProgram"
             app:destination="@id/createProgram" />
     </fragment>
     <fragment
         android:id="@+id/createProgram"
-        android:name="com.example.fitnessapp.program.CreateProgramFragment"
+        android:name="com.example.fitnessapp.program.CreateProgramView"
         android:label="program_create_program"
         tools:layout="@layout/program_create_program" >
         <action

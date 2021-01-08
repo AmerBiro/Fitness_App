@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".home.Home"
+    tools:context=".program.ProgramListViwer"
     android:background="@color/ColorPrimaryDark">
 
     <TextView
@@ -22,7 +22,7 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_program_recycler_view"
+        android:id="@+id/program_list_recycler_view"
         android:layout_marginTop="120dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -2,11 +2,8 @@ package com.example.fitnessapp.mvvm;
 
 import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.EventListener;
@@ -48,9 +45,9 @@ public class FirebaseRepository {
     }
 
 
-
-    public interface OnFirestoreTaskComplete{
+    public interface OnFirestoreTaskComplete {
         void programListDataAdded(List<ProgramListModel> programListModels);
+
         void onError(Exception e);
     }
 

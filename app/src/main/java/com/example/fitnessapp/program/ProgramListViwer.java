@@ -1,4 +1,4 @@
-package com.example.fitnessapp.home;
+package com.example.fitnessapp.program;
 
 import android.os.Bundle;
 
@@ -17,7 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.databinding.HomeHomeBinding;
+import com.example.fitnessapp.databinding.ProgramCurrentProgramViwerBinding;
+import com.example.fitnessapp.databinding.ProgramProgramListViwerBinding;
 import com.example.fitnessapp.functions.AlertDialogShower;
 import com.example.fitnessapp.mvvm.ProgramListAdapter;
 import com.example.fitnessapp.mvvm.ProgramListModel;
@@ -25,10 +26,10 @@ import com.example.fitnessapp.mvvm.ProgramListViewModel;
 
 import java.util.List;
 
-public class Home extends Fragment {
+public class ProgramListViwer extends Fragment {
 
     private @NonNull
-    HomeHomeBinding binding;
+    ProgramProgramListViwerBinding binding;
 
     private NavController controller;
     private RecyclerView recyclerView;
@@ -38,7 +39,7 @@ public class Home extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = com.example.fitnessapp.databinding.HomeHomeBinding.inflate(inflater, container, false);
+        binding = ProgramProgramListViwerBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         shower = new AlertDialogShower();
         return view;
@@ -48,7 +49,7 @@ public class Home extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         controller = Navigation.findNavController(view);
-        recyclerView = binding.listProgramRecyclerView;
+        recyclerView = binding.programListRecyclerView;
         adapter = new ProgramListAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);

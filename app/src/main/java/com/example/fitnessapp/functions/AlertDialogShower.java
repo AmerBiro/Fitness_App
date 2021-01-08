@@ -82,54 +82,6 @@ public class AlertDialogShower {
         });
     }
 
-        public void addProgramDialog(Activity activity) {
-            Dialog dialog = new Dialog(activity);
-            dialog.setContentView(R.layout.alert_dialog_add_program);
-            dialog.getWindow().getAttributes().windowAnimations = R.style.alert_dialog_animation;
-            dialog.show();
-
-            Button cancel, create;
-            cancel = dialog.findViewById(R.id.cancel_create_program);
-            create = dialog.findViewById(R.id.create_program);
-            cancel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.cancel();
-                }
-            });
-
-            create.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String CreateProgram = "";
-                    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                    FirebaseUser userID = firebaseAuth.getCurrentUser();
-                    FirebaseFirestore fStore= FirebaseFirestore.getInstance();
-
-                    CollectionReference programRef = FirebaseFirestore.getInstance().collection("users").document(userID.getUid()).collection("ProgramList");
-
-
-
-                    Map<String, Object> program = new HashMap<>();
-
-                    EditText program_name, days, exercises, start_date, end_date;
-                    program_name = dialog.findViewById(R.id.create_program_name);
-                    days = dialog.findViewById(R.id.create_program_days);
-                    exercises = dialog.findViewById(R.id.create_program_exercises);
-                    start_date = dialog.findViewById(R.id.create_program_start_date);
-                    end_date = dialog.findViewById(R.id.create_program_end_date);
-
-                    program.put("program_name", program_name.getText().toString());
-                    program.put("days", days.getText().toString());
-                    program.put("exercises", exercises.getText().toString());
-                    program.put("start_date", start_date.getText().toString());
-                    program.put("end_date", end_date.getText().toString());
-
-                    programRef.add(program);
-                    dialog.cancel();
-                }
-            });
-        }
 
 
 }

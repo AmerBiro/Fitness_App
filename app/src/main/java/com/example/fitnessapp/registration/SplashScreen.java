@@ -16,12 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.databinding.HomeSplashScreenBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.example.fitnessapp.databinding.RegistrationSplashScreenBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -29,11 +24,12 @@ public class SplashScreen extends Fragment {
     private FirebaseAuth firebaseAuth;
     private static final String userStatus = "";
     private NavController navController;
-    private @NonNull HomeSplashScreenBinding binding;
+    private @NonNull
+    RegistrationSplashScreenBinding binding;
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = HomeSplashScreenBinding.inflate(inflater, container, false);
+        binding = RegistrationSplashScreenBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
     }
