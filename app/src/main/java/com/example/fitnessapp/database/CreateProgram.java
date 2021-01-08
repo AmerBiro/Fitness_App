@@ -1,63 +1,55 @@
 package com.example.fitnessapp.database;
 
+import androidx.annotation.NonNull;
+
+import com.example.fitnessapp.mvvm.ProgramListModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CreateProgram {
 
-    private String program_name, program_name_key,
-            coach_name, coach_name_key,
-            fitness_center, fitness_center_key,
-            days, days_key,
-            exercises, exercises_key,
-            start_date, start_date_key,
-            end_date, end_date_key,
-            image;
+    private String programName, coachName, fitnessCenter, daysNumber, exercisesNumber, start_date, end_date, image_url;
 
-    public CreateProgram(String program_name, String program_name_key, String coach_name, String coach_name_key, String fitness_center, String fitness_center_key, String days, String days_key, String exercises, String exercises_key, String start_date, String start_date_key, String end_date, String end_date_key,
-                         String image) {
-        this.program_name = program_name;
-        this.program_name_key = program_name_key;
-        this.coach_name = coach_name;
-        this.coach_name_key = coach_name_key;
-        this.fitness_center = fitness_center;
-        this.fitness_center_key = fitness_center_key;
-        this.days = days;
-        this.days_key = days_key;
-        this.exercises = exercises;
-        this.exercises_key = exercises_key;
+    public CreateProgram(String programName, String coachName, String fitnessCenter, String daysNumber, String exercisesNumber, String start_date, String end_date, String image_url) {
+        this.programName = programName;
+        this.coachName = coachName;
+        this.fitnessCenter = fitnessCenter;
+        this.daysNumber = daysNumber;
+        this.exercisesNumber = exercisesNumber;
         this.start_date = start_date;
-        this.start_date_key = start_date_key;
         this.end_date = end_date;
-        this.end_date_key = end_date_key;
-        this.image = image;
+        this.image_url = image_url;
+    }
+
+    public CreateProgram() {
     }
 
     public void createProgram() {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser userID = firebaseAuth.getCurrentUser();
-        String userId = userID.getUid();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        String userId = firebaseUser.getUid();
         CollectionReference programRef = FirebaseFirestore.getInstance()
-                .collection("users").document(userId)
+                .collection("user").document(userId)
                 .collection("ProgramList");
-
 
         Map<String, Object> program = new HashMap<>();
 
-        program.put(program_name_key, this.program_name);
-        program.put(coach_name_key, this.coach_name);
-        program.put(fitness_center_key, this.fitness_center);
-        program.put(days_key, this.days);
-        program.put(exercises_key, this.exercises);
-        program.put(start_date_key, this.start_date);
-        program.put(end_date_key, this.end_date);
-        program.put("program_image_url", this.image);
-
+        program.put("programName", this.programName);
+        program.put("coachName", this.coachName);
+        program.put("fitnessCenter", this.fitnessCenter);
+        program.put("daysNumber", this.daysNumber);
+        program.put("exercisesNumber", this.exercisesNumber);
+        program.put("start_date", this.start_date);
+        program.put("end_date", this.end_date);
+        program.put("image_url", this.image_url);
         programRef.add(program);
     }
 

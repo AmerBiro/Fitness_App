@@ -1,4 +1,4 @@
-package com.example.fitnessapp.home;
+package com.example.fitnessapp.registration;
 
 import android.os.Bundle;
 

@@ -41,16 +41,22 @@
         <item name="fontFamily"> @font/work_sans</item>
     </style>
 
-    <style name="programs_list_recyclerview_title">
+    <style name="program_list_single_item_title">
         <item name="android:textColor">@color/ColorPrimary</item>
         <item name="android:textSize" > 20sp </item>
-        <item name="fontFamily"> @font/work_sans</item>
+        <item name="fontFamily"> @font/crimson_text</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
     </style>
 
-    <style name="programs_list_recyclerview_sub_title">
+    <style name="program_list_single_item_sub_title">
         <item name="android:textColor">@color/ColorPrimary</item>
         <item name="android:textSize" > 16sp </item>
         <item name="fontFamily"> @font/work_sans</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
     </style>
 
     <style name="alert_dialog_create_account">

@@ -24,28 +24,28 @@ import java.util.Map;
 
 public class ImageHandler {
 
-    private String imageString;
+    private String image_url;
 
     public void uploadeImageToFirebase(Intent data, Activity activity, ImageView imageView){
         Uri imageUri = data.getData();
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        String userId = user.getUid();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        String userId = firebaseUser.getUid();
         StorageReference storageReference = FirebaseStorage.getInstance().getReference();
         String imageId = Double.toString((System.currentTimeMillis() / 1000));
 
-        final StorageReference profilePicture = storageReference.child("users/" + userId + "/" + imageId + ".jpg");
+        final StorageReference programImage = storageReference.child("user/" + userId + "/" + imageId + ".jpg");
 
-        profilePicture.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+        programImage.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                profilePicture.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                programImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
                         Map<String, Object> image = new HashMap<>();
-                        image.put("program_image_url", uri);
-                        imageString = uri.toString();
+                        image.put("image_url", uri);
+                        image_url = uri.toString();
                         Glide
                                 .with(activity)
                                 .load(uri)
@@ -65,7 +65,7 @@ public class ImageHandler {
     }
 
     public String getImageUri(){
-        return imageString;
+        return this.image_url;
     }
 
 
