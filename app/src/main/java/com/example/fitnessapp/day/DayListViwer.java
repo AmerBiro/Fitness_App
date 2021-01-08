@@ -1,7 +1,9 @@
 package com.example.fitnessapp.day;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -17,6 +19,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +40,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -114,6 +118,55 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
                         adapter.notifyDataSetChanged();
                     }
                 });
+
+                try {
+//                    Log.d(TAG, "getDayListId: " + dayListModels.get(position).getDayListId());
+                }catch (Exception e){
+
+                }
+
+                new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+                    @Override
+                    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                        DocumentReference dayRef = firebaseFirestore
+                                .collection("user").document(userId)
+                                .collection("ProgramList").document(programListId)
+                                .collection("DayList").document(dayListModels.get(viewHolder.getAdapterPosition()).getDayListId());
+//                        Log.d(TAG, "getDayListId: " + dayListModels.get(viewHolder.getAdapterPosition()).getDayListId());
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                        builder.setTitle("Delete student");
+                        builder.setMessage("Are you sure that you want to delete the following day\n"
+                                + "Day " + dayListModels.get(viewHolder.getAdapterPosition()).getDay_number()
+                                + ", " + dayListModels.get(viewHolder.getAdapterPosition()).getDay_exercise_number()
+                                + " " + "exercise")
+                                .setCancelable(true)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dayRef.delete();
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                }).setOnCancelListener(new DialogInterface.OnCancelListener() {
+                            @Override
+                            public void onCancel(DialogInterface dialog) {
+                                adapter.notifyDataSetChanged();
+                            }
+                        });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
+                }).attachToRecyclerView(recyclerView);
             }
         });
     }
