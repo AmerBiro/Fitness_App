@@ -2,6 +2,7 @@ package com.example.fitnessapp.program;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,9 +21,12 @@ import com.example.fitnessapp.database.CreateProgram;
 import com.example.fitnessapp.database.ImageHandler;
 import com.example.fitnessapp.databinding.ProgramCreateProgramBinding;
 
+import java.io.IOException;
+
 public class CreateProgramView extends Fragment {
 
-    private @NonNull ProgramCreateProgramBinding binding;
+    private @NonNull
+    ProgramCreateProgramBinding binding;
     private CreateProgram createProgram;
     private ImageHandler handler;
     private NavController navController;
@@ -74,18 +78,21 @@ public class CreateProgramView extends Fragment {
 
     }
 
-    public void openGallery(int requestCode){
-        Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(openGallery, requestCode);
+    public void openGallery(int requestCode) {
+//        Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//        startActivityForResult(openGallery, requestCode);
+
+        Intent gallery = new Intent();
+        gallery.setType("image/*");
+        gallery.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(gallery, "select picture"), 1000);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1000) {
-            if (resultCode == Activity.RESULT_OK) {
-                handler.uploadeImageToFirebase(data, getActivity(), binding.image);
-            }
+        if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
+            handler.uploadeImageToFirebase(data, getActivity(), binding.image);
         }
     }
 
