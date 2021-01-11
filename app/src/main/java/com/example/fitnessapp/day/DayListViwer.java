@@ -29,6 +29,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.fitnessapp.R;
+import com.example.fitnessapp.database.AddDay;
 import com.example.fitnessapp.databinding.DayDayListViwerBinding;
 import com.example.fitnessapp.functions.AlertDialogShower;
 import com.example.fitnessapp.mvvm.DayListAdapter;
@@ -67,7 +68,7 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
     private String userId;
     private List<DayListModel> dayListModels = new ArrayList<>();
     private String programListId;
-    private AlertDialogShower shower;
+    private AddDay day;
 
     private RecyclerView recyclerView;
     private DayListAdapter adapter;
@@ -87,7 +88,7 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
-        shower = new AlertDialogShower(getActivity(),view);
+        day = new AddDay(getActivity(),view);
         recyclerViewSetup();
     }
 
@@ -119,12 +120,6 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
                     }
                 });
 
-                try {
-//                    Log.d(TAG, "getDayListId: " + dayListModels.get(position).getDayListId());
-                }catch (Exception e){
-
-                }
-
                 new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
                     @Override
                     public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -134,18 +129,22 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
                     @Override
                     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
+                        String dayName, dayNumber, day_exercise_number, dayId;
+                        dayNumber = dayListModels.get(viewHolder.getAdapterPosition()).getDay_number();
+                        dayName = dayListModels.get(viewHolder.getAdapterPosition()).getDay_name();
+                        day_exercise_number = dayListModels.get(viewHolder.getAdapterPosition()).getDay_exercise_number();
+                        dayId = dayListModels.get(viewHolder.getAdapterPosition()).getDayListId();
+
                         DocumentReference dayRef = firebaseFirestore
                                 .collection("user").document(userId)
                                 .collection("ProgramList").document(programListId)
-                                .collection("DayList").document(dayListModels.get(viewHolder.getAdapterPosition()).getDayListId());
+                                .collection("DayList").document(dayId);
 //                        Log.d(TAG, "getDayListId: " + dayListModels.get(viewHolder.getAdapterPosition()).getDayListId());
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                         builder.setTitle("Delete student");
-                        builder.setMessage("Are you sure that you want to delete the following day\n"
-                                + "Day " + dayListModels.get(viewHolder.getAdapterPosition()).getDay_number()
-                                + ", " + dayListModels.get(viewHolder.getAdapterPosition()).getDay_exercise_number()
-                                + " " + "exercise")
+                        builder.setMessage("Are you sure that you want to delete the day below\n"
+                                + "Day " + dayNumber + ", " + day_exercise_number + " exercise" + " \n" + dayName + "?")
                                 .setCancelable(true)
                                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
@@ -176,7 +175,6 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
         super.onStart();
         binding.about.setOnClickListener(this);
         binding.addDay.setOnClickListener(this);
-
     }
 
     @Override
@@ -189,7 +187,7 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
                 controller.navigate(action);
                 break;
             case R.id.add_day:
-                shower.addDay(userId, programListId);
+                day.addDay(userId, programListId);
             default:
         }
     }

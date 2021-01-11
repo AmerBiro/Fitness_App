@@ -33,8 +33,6 @@ public class AlertDialogShower {
 
     private Activity activity;
     private View view;
-    private String userId, programListId;
-    private String day_name, day_number, day_exercise_number;
 
     public AlertDialogShower(Activity activity, View view) {
         this.activity = activity;
@@ -99,66 +97,4 @@ public class AlertDialogShower {
         });
     }
 
-
-    public void addDay(String userId, String programListId) {
-        this.userId = userId;
-        this.programListId = programListId;
-        Dialog dialog = new Dialog(activity);
-        dialog.setContentView(R.layout.day_create_day_view);
-        dialog.getWindow().getAttributes().windowAnimations = R.style.alert_dialog_animation;
-        dialog.setCancelable(true);
-        dialog.show();
-        TextView dayNumber, dayName, day_exercise_number;
-        Button addDay;
-        dayNumber = dialog.findViewById(R.id.create_day_day_number);
-        dayName = dialog.findViewById(R.id.create_day_name);
-        day_exercise_number = dialog.findViewById(R.id.create_day_number_of_exercises);
-        addDay = dialog.findViewById(R.id.create_day_add_day);
-
-        addDay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CollectionReference dayRef = FirebaseFirestore.getInstance()
-                        .collection("user").document(userId)
-                        .collection("ProgramList").document(programListId)
-                        .collection("DayList");
-
-                Map<String, Object> day = new HashMap<>();
-                day.put("day_number", dayNumber.getText().toString());
-                day.put("day_name", dayName.getText().toString());
-                day.put("day_exercise_number", day_exercise_number.getText().toString());
-                dayRef.add(day).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        if (task.isSuccessful())
-                            dialog.cancel();
-                    }
-                });
-            }
-        });
-
-//        addDay.setOnClickListener(this);
-    }
-
-
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.create_day_add_day:
-//                CollectionReference dayRef = FirebaseFirestore.getInstance()
-//                        .collection("user").document(userId)
-//                        .collection("ProgramList").document(programListId)
-//                        .collection("DayList");
-//
-//                Map<String, Object> day = new HashMap<>();
-//                if (day_number.trim().isEmpty())
-//                    day_number = "0";
-//                day.put("day_number", day_number);
-//                day.put("day_name", day_name);
-//                day.put("day_exercise_number", day_exercise_number);
-//                dayRef.add(day);
-//                break;
-//            default:
-//        }
-//    }
 }
