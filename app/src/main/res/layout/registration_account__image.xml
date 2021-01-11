@@ -7,14 +7,14 @@
     android:background="@color/ColorPrimaryDark"
     tools:context=".registration.Account_Image"
     android:orientation="vertical"
-    android:gravity="center"
+    android:layout_gravity="center"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Account_image"
-        style="@style/title"
+        style="@style/title_main_pages"
         />
 
 
@@ -24,7 +24,9 @@
             android:layout_height="250dp"
             app:cardCornerRadius="500dp"
             app:cardBackgroundColor="@color/black"
-            android:layout_marginBottom="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+
             >
 
             <ImageView
@@ -39,14 +41,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/button_wide"
+            style="@style/button_wide_main_pages"
             android:text="@string/select_account_image"
             />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/button_wide"
+            style="@style/button_wide_main_pages"
             android:text="@string/done"
             />
 

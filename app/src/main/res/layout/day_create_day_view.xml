@@ -17,7 +17,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/create_day_number"
-        style="@style/create_day_field_number"
+        style="@style/field_sub_field"
+        android:inputType="number"
         />
 
     <EditText
@@ -25,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/create_day_name"
-        style="@style/create_day_field_"
+        style="@style/field_sub_field"
         />
 
     <EditText
@@ -33,7 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/create_day_exercises_number"
-        style="@style/create_day_field_number"
+        style="@style/field_sub_field"
+        android:inputType="number"
         />
 
 
@@ -41,7 +43,7 @@
         android:id="@+id/create_day_add_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/button_medium"
+        style="@style/button_medium_main_pages"
         android:text="@string/day_add_day"
         android:layout_marginTop="10dp"
         />

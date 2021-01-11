@@ -4,190 +4,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@color/ColorPrimaryDark"
-    tools:context=".registration.Create_Account"
     android:orientation="vertical"
-    android:gravity="center"
-    >
-
-    <TextView
-        android:id="@+id/textView"
-        style="@style/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Create_account"
-        />
+    tools:context=".registration.Create_Account">
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/title_main_pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:text="@string/Create_account" />
+
+
+            <TextView
+                style="@style/sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="@string/personal_info" />
 
             <EditText
                 android:id="@+id/id_first_name"
-                style="@style/field"
+                style="@style/field_sub_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="5"
-                android:hint="@string/first_name"
-                />
+                android:hint="@string/first_name" />
 
 
             <EditText
                 android:id="@+id/id_last_name"
-                style="@style/field"
+                style="@style/field_sub_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:ems="5"
-                android:hint="@string/last_name"
-                />
-
-        </LinearLayout>
+                android:hint="@string/last_name" />
 
 
-        <EditText
-            android:id="@+id/id_email"
-            style="@style/field_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="11"
-            android:hint="@string/email_Create_account"
-            />
-
-
-        <EditText
-            android:id="@+id/id_password"
-            style="@style/field_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="11"
-            android:hint="@string/password_create_account"
-            />
-
-        <EditText
-            android:id="@+id/id_confirm_password"
-            style="@style/field_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="11"
-            android:hint="@string/confirm_password"
-            />
-
-
-        <TextView
-            style="@style/sub_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/date_of_birth"
-            android:ems="11"
-            android:layout_marginBottom="10dp"
-            />
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
-
-            <Button
-                android:id="@+id/id_select_date"
-                style="@style/button_medium"
+            <EditText
+                android:id="@+id/id_email"
+                style="@style/field_sub_field"
+                android:inputType="textEmailAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/select"
-                />
+                android:hint="@string/email_Create_account" />
+
+
+            <EditText
+                android:id="@+id/id_password"
+                style="@style/field_sub_field"
+                android:inputType="textPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/password_create_account" />
+
+            <EditText
+                android:id="@+id/id_confirm_password"
+                style="@style/field_sub_field"
+                android:inputType="textPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/confirm_password" />
+
 
             <TextView
-                android:id="@+id/id_date"
-                style="@style/field"
-                android:ems="6"
-                android:layout_marginLeft="14dp"
-                android:text="@string/date"
+                style="@style/sub_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
-                />
-
-        </LinearLayout>
+                android:text="@string/date_of_birth" />
 
 
-        <TextView
-            android:text="@string/gender"
-            style="@style/sub_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="11"
-            android:layout_marginBottom="10dp"
-            />
+            <EditText
+                android:id="@+id/id_date"
+                style="@style/field_sub_field"
+                android:inputType="date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/date_of_birth" />
 
+            <TextView
+                style="@style/sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
 
             <RadioGroup
                 android:id="@+id/id_radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                >
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/Male"
-                    style="@style/button_medium"
+                    style="@style/button_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="@color/ColorPrimary"
                     android:paddingHorizontal="10dp"
-                    android:text="@string/male"
-                    />
+                    android:text="@string/male" />
 
                 <RadioButton
                     android:id="@+id/Female"
-                    style="@style/button_medium"
+                    style="@style/button_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="33dp"
-                    android:buttonTint="@color/ColorPrimary"
                     android:paddingHorizontal="5dp"
-                    android:text="@string/female"
-                    />
+                    android:text="@string/female" />
 
             </RadioGroup>
 
 
+            <TextView
+                android:id="@+id/id_gender_not_selected"
+                style="@style/forgot_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="visible" />
+
+            <include
+                android:id="@+id/id_create_account_button"
+                style="@style/button_wide_main_pages"
+                layout="@layout/button_create_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp" />
+
+
         </LinearLayout>
-
-
-
-    <TextView
-        android:id="@+id/id_gender_not_selected"
-        style="@style/forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="visible"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        />
-
-    <include
-        android:id="@+id/id_create_account_button"
-        layout="@layout/button_create_account"
-        style="@style/button_wide"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        />
-
+    </ScrollView>
 </LinearLayout>

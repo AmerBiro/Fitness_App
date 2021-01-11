@@ -193,7 +193,7 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
     }
 
     private void recyclerViewSetup() {
-        recyclerView = binding.dayListRecyclerView;
+        recyclerView = binding.recyclerview;
         adapter = new DayListAdapter(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);

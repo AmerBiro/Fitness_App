@@ -10,13 +10,6 @@
     android:padding="30dp"
     tools:context=".program.CurrentProgramViwer">
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/create_program_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about_program_title" />
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,13 +23,19 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView"
+                style="@style/current_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_program_title" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/image_placeholder"
-                app:cardCornerRadius="8dp"
                 android:backgroundTint="@color/ColorLightText"
-                >
+                app:cardCornerRadius="8dp">
 
                 <ImageView
                     android:id="@+id/image"
@@ -46,83 +45,67 @@
             </androidx.cardview.widget.CardView>
 
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/program_name"
-                    style="@style/create_program_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:hint="@string/Program_name_example" />
+            <EditText
+                android:id="@+id/program_name"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="@string/programs_name" />
 
 
-
-                <EditText
-                    android:id="@+id/coatch_name"
-                    style="@style/create_program_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/coatch_name_example" />
-
-
-                <EditText
-                    android:id="@+id/program_fitness_center"
-                    style="@style/create_program_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/fitness_center_example" />
-
-                <EditText
-                    android:id="@+id/program_days"
-                    style="@style/create_program_field_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/x_days_example"
-                    android:inputType="number" />
-
-                <EditText
-                    android:id="@+id/program_exercises"
-                    style="@style/create_program_field_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/x_exercises_example"
-                    android:inputType="number" />
+            <EditText
+                android:id="@+id/coatch_name"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Coatch name" />
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
+            <EditText
+                android:id="@+id/program_fitness_center"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Fitness center" />
 
-                    <TextView
-                        android:id="@+id/program_start_date"
-                        style="@style/create_program_field_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="39dp"
-                        android:hint="@string/start_date_example" />
+            <EditText
+                android:id="@+id/program_days"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Total number of days"
+                android:inputType="number" />
 
-                    <TextView
-                        android:id="@+id/program_end_date"
-                        style="@style/create_program_field"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/end_date_example" />
-                </LinearLayout>
+            <EditText
+                android:id="@+id/program_exercises"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Total number of exercises"
+                android:inputType="number" />
 
 
-            </LinearLayout>
+            <EditText
+                android:id="@+id/program_start_date"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Start date"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/program_end_date"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="End data"
+                android:inputType="date" />
+
 
             <Button
                 android:id="@+id/edit"
-                style="@style/button_medium"
+                style="@style/button_wide_main_pages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"

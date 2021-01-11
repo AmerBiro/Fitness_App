@@ -7,23 +7,15 @@
     android:background="@color/ColorPrimaryDark"
     tools:context=".registration.Membership"
     android:orientation="vertical"
-    android:gravity="center"
+    android:layout_gravity="center"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Membership_info"
-        style="@style/title"
+        style="@style/title_main_pages"
         />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="80dp"
-        >
 
 
 
@@ -31,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/fitness_name"
-            style="@style/field_membership"
+            style="@style/field"
             />
 
 
@@ -39,38 +31,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/first_day"
-            style="@style/field_membership"
+            style="@style/field_sub_field"
             />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/membership_number"
-            style="@style/field_membership"
+            style="@style/field_sub_field"
             />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/username_membership_info"
-            style="@style/field_membership"
+            style="@style/field_sub_field"
             />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/password_membership_info"
-            style="@style/field_membership"
+            style="@style/field_sub_field"
             />
 
-    </LinearLayout>
 
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next_membership_info"
-        style="@style/button_wide"
+        style="@style/button_wide_main_pages"
         />
 
 </LinearLayout>

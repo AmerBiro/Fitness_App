@@ -1,48 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ColorPrimaryDark"
+    tools:context=".exercise.ExerciseListViwer"
     android:orientation="vertical"
-    tools:context=".program.ProgramListViwer">
+    >
 
     <TextView
-        style="@style/title_program_pages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Programs" />
+        android:text="@string/Exercise"
+        style="@style/title_program_pages"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
-            style="@style/recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            style="@style/recyclerview"
+            />
+
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:gravity="center"
             android:orientation="horizontal"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="40dp"
+            >
             <Button
                 android:id="@+id/add"
-                style="@style/button_medium_main_pages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/exercise_add"
+                style="@style/button_medium_main_pages"
                 android:background="@drawable/button_medium"
-                android:layout_marginBottom="25dp"
-                android:text="@string/exercise_add" />
+                />
 
 
         </LinearLayout>

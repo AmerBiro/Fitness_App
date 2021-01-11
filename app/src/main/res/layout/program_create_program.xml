@@ -2,27 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".program.CreateProgramView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/create_program_background"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="30dp"
-    >
+    tools:context=".program.CreateProgramView">
 
-    <TextView
-        android:id="@+id/textView"
-        style="@style/create_program_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create_program"
-        />
+
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,118 +25,93 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView"
+                style="@style/current_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_program" />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/image_placeholder"
-                app:cardCornerRadius="8dp"
                 android:backgroundTint="@color/ColorLightText"
-                >
+                app:cardCornerRadius="8dp">
 
                 <ImageView
-                    android:id="@+id/image"
+                    android:id="@+id/image_create_program"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/placeholder_image" />
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/select_image"
-                style="@style/button_wide"
+
+            <EditText
+                android:id="@+id/program_name"
+                style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/create_select_image"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:orientation="vertical">
+                android:layout_marginTop="40dp"
+                android:hint="@string/programs_name" />
 
 
-                <EditText
-                    android:id="@+id/create_program_name"
-                    style="@style/create_program_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/Program_name"
-                    />
+            <EditText
+                android:id="@+id/coatch_name"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Coatch name" />
 
 
-                <EditText
-                    android:id="@+id/create_program_coatch_name"
-                    style="@style/create_program_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/coatch_name"
-                    />
+            <EditText
+                android:id="@+id/program_fitness_center"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Fitness center" />
+
+            <EditText
+                android:id="@+id/number_days"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Total number of days"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/number_exercises"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Total number of exercises"
+                android:inputType="number" />
 
 
-                <EditText
-                    android:id="@+id/create_program_fitness_center"
-                    style="@style/create_program_field"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/fitness_center"
-                    />
+            <EditText
+                android:id="@+id/start_date"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Start date"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/end_date"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="End data"
+                android:inputType="date" />
 
 
-                <EditText
-                    android:id="@+id/create_program_days"
-                    style="@style/create_program_field_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/x_days"
-                    android:inputType="number"
-                    />
-
-
-                <EditText
-                    android:id="@+id/create_program_exercises"
-                    style="@style/create_program_field_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/x_exercises"
-                    android:inputType="number"
-                    />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    >
-
-                    <TextView
-                        android:id="@+id/create_program_start_date"
-                        style="@style/create_program_field_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/start_date_create_program"
-                        android:layout_marginRight="39dp"
-                        />
-
-                    <TextView
-                        android:id="@+id/create_program_end_date"
-                        style="@style/create_program_field_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/end_date_create_program"
-                        />
-                </LinearLayout>
-
-            </LinearLayout>
-
-                <Button
-                    android:id="@+id/create_program"
-                    style="@style/button_medium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/create_program_button"
-                    />
+            <Button
+                android:id="@+id/create"
+                style="@style/button_wide_main_pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Create" />
 
 
         </LinearLayout>

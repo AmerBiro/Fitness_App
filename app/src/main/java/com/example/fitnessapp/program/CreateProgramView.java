@@ -1,29 +1,29 @@
 package com.example.fitnessapp.program;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitnessapp.MainActivity;
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.database.CreateProgram;
 import com.example.fitnessapp.database.ImageHandler;
 import com.example.fitnessapp.databinding.ProgramCreateProgramBinding;
 
-import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Calendar;
 
-public class CreateProgramView extends Fragment {
+public class CreateProgramView extends Fragment implements View.OnClickListener {
 
     private @NonNull
     ProgramCreateProgramBinding binding;
@@ -31,6 +31,8 @@ public class CreateProgramView extends Fragment {
     private ImageHandler handler;
     private NavController navController;
     private String programName, coachName, fitnessCenter, daysNumber, exercisesNumber, start_date, end_date, image_url;
+    private DatePickerDialog.OnDateSetListener startDate, endDate;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,32 +51,11 @@ public class CreateProgramView extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        binding.create.setOnClickListener(this);
+        binding.imageCreateProgram.setOnClickListener(this);
+        binding.startDate.setOnClickListener(this);
+        binding.endDate.setOnClickListener(this);
 
-        binding.createProgram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                programName = binding.createProgramName.getText().toString();
-                coachName = binding.createProgramCoatchName.getText().toString();
-                fitnessCenter = binding.createProgramFitnessCenter.getText().toString();
-                daysNumber = binding.createProgramDays.getText().toString();
-                exercisesNumber = binding.createProgramExercises.getText().toString();
-                start_date = binding.createProgramStartDate.getText().toString();
-                end_date = binding.createProgramEndDate.getText().toString();
-
-                createProgram = new CreateProgram(
-                        programName, coachName, fitnessCenter, daysNumber, exercisesNumber,
-                        start_date, end_date, handler.getImageUri());
-                createProgram.createProgram();
-                navController.navigate(R.id.action_createProgram_to_home2);
-            }
-        });
-
-        binding.selectImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGallery(1000);
-            }
-        });
 
     }
 
@@ -92,9 +73,34 @@ public class CreateProgramView extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
-            handler.uploadeImageToFirebase(data, getActivity(), binding.image);
+            handler.uploadeImageToFirebase(data, getActivity(), binding.imageCreateProgram);
         }
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.image_create_program:
+            openGallery(1000);
+            break;
+            case R.id.create:
+                programName = binding.programName.getText().toString();
+                coachName = binding.coatchName.getText().toString();
+                fitnessCenter = binding.programFitnessCenter.getText().toString();
+                daysNumber = binding.numberDays.getText().toString();
+                exercisesNumber = binding.numberExercises.getText().toString();
+                start_date = binding.startDate.getText().toString();
+                end_date = binding.endDate.getText().toString();
+
+                createProgram = new CreateProgram(
+                        programName, coachName, fitnessCenter, daysNumber, exercisesNumber,
+                        start_date, end_date, handler.getImageUri());
+                createProgram.createProgram();
+                navController.navigate(R.id.action_createProgram_to_home2);
+                break;
+            default:
+        }
+
+    }
 }

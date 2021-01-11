@@ -1,77 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ColorPrimaryDark"
+    android:orientation="vertical"
     tools:context=".day.DayListViwer">
 
     <TextView
-        style="@style/title"
+        style="@style/title_program_pages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="175dp"
-        android:text="@string/day_title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
-
-
-
+        android:text="@string/day_title" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/day_list_recycler_view"
+            android:id="@+id/recyclerview"
+            style="@style/recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="120dp"
-            android:paddingBottom="100dp"
-            >
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="match_parent" />
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginBottom="48dp"
             android:gravity="center"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="600dp"
-            tools:ignore="MissingConstraints"
-            >
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/about"
+                style="@style/button_medium_main_pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="33dp"
+                android:text="@string/day_about" />
 
             <Button
                 android:id="@+id/add_day"
-                style="@style/button_medium"
+                style="@style/button_medium_main_pages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/day_add_day"
-                android:layout_marginRight="20dp"
-                />
-            <Button
-                android:id="@+id/about"
-                style="@style/button_medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/day_about"
+                android:text="@string/day_add_day" />
 
-                />
 
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

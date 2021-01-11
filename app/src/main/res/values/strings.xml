@@ -41,6 +41,7 @@
     <string name="select">Select</string>
     <string name="date">xx/xx/xxxx</string>
     <string name="gender">Gender</string>
+    <string name="personal_info">Personal Info</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="next_create_account">Next</string>
@@ -71,7 +72,7 @@
 
 
     <string name="Programs">Programs</string>
-    <string name="programs_name">Weight losing</string>
+    <string name="programs_name">Program name</string>
     <string name="days_exercises">x days with x exercise</string>
     <string name="start_date">From: 01/01/2020</string>
     <string name="end_date">To:     01/04/2020</string>
@@ -102,8 +103,7 @@
 
     <string name="day_title">Days</string>
     <string name="day_about">About</string>
-    <string name="day_add_day">Add day</string>
-
+    <string name="day_add_day">Add</string>
 
 
     <string name="day_list_single_item_day_exercise">Day 1, 6 exercise</string>
@@ -114,6 +114,15 @@
     <string name="create_day_name">Day name</string>
     <string name="create_day_exercises_number">Number of exercises</string>
     <string name="create_day_create">Add</string>
+
+
+    <string name="Exercise">Exercises</string>
+    <string name="exercise_add">Add</string>
+    <string name="exercise_about">About</string>
+
+
+
+
 
 
 

@@ -7,21 +7,20 @@
     android:background="@color/ColorPrimaryDark"
     tools:context=".registration.Body"
     android:orientation="vertical"
-    android:gravity="center"
+    android:layout_gravity="center"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Body"
-        style="@style/title"
+        style="@style/title_main_pages"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
+        style="@style/linear_layout_body"
         >
 
 
@@ -29,20 +28,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/height"
                 style="@style/sub_title"
-                android:layout_marginLeft="5dp"
+                android:ems="3"
                 />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/height_"
-                style="@style/button_small"
+                style="@style/button_small_main_pages"
                 android:layout_marginTop="5dp"
                 />
 
@@ -52,21 +53,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="33dp"
+            android:layout_marginStart="33dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/weight"
                 style="@style/sub_title"
-                android:layout_marginLeft="3dp"
+                android:ems="3"
                 />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/weight_"
-                style="@style/button_small"
+                style="@style/button_small_main_pages"
                 android:layout_marginTop="5dp"
                 />
 
@@ -76,22 +79,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="33dp"
+            android:layout_marginStart="33dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/age"
                 style="@style/sub_title"
-                android:layout_marginLeft="22dp"
+                android:textAlignment="center"
+                android:ems="3"
                 />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/age_"
-                style="@style/button_small"
-                android:layout_marginTop="5dp"
+                style="@style/button_small_main_pages"
                 />
 
         </LinearLayout>
@@ -102,8 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next_body"
-        style="@style/button_wide"
-        android:layout_marginTop="30dp"
+        style="@style/button_wide_main_pages"
         />
 
 </LinearLayout>

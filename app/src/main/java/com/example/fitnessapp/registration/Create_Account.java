@@ -16,7 +16,6 @@ import android.widget.EditText;
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.databinding.RegistrationCreateAccountBinding;
 import com.example.fitnessapp.buttons.ButtonCreateAccount;
-import com.example.fitnessapp.functions.DatePicker;
 import com.example.fitnessapp.functions.FieldChecker;
 import com.example.fitnessapp.functions.User;
 
@@ -25,7 +24,6 @@ public class Create_Account extends Fragment {
 
     private @NonNull RegistrationCreateAccountBinding binding;
     private FieldChecker checker;
-    private DatePicker datePicker;
     private ButtonCreateAccount buttonCreateAccount;
     private User user;
     private EditText [] fields, password;
@@ -46,7 +44,6 @@ public class Create_Account extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         checker = new FieldChecker();
-        datePicker = new com.example.fitnessapp.functions.DatePicker();
         user = new User();
         fields = new EditText[5];
         password = new EditText[2];
@@ -77,10 +74,10 @@ public class Create_Account extends Fragment {
             }
         });
 
-        binding.idSelectDate.setOnClickListener(new View.OnClickListener() {
+        binding.idDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                datePicker.datePicker(getActivity(), binding.idDate);
+//                datePickerFragment.datePicker(getActivity(), binding.idDate);
             }
         });
     }
