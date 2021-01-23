@@ -83,6 +83,20 @@ public class CreateProgram {
             public void onSuccess(DocumentReference documentReference) {
                 Log.d(TAG, "onSuccess: " + "Adding a program document successfully " +  documentReference.get());
 
+                CollectionReference dayRef = FirebaseFirestore.getInstance()
+                        .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .collection("ProgramList").document(documentReference.getId())
+                        .collection("DayList");
+
+                HashMap<String, Object> day = new HashMap<>();
+
+                for (int i = 0; i<daysNumber; i++){
+                    day.put("day_number", i+1);
+                    day.put("day_name", "");
+                    day.put("day_exercise_number", 0);
+                    dayRef.add(day);
+                }
+
                 StorageReference programImage = FirebaseStorage.getInstance().getReference()
                         .child("user")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

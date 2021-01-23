@@ -6,13 +6,14 @@ public class DayListModel {
 
     @DocumentId
     private String dayListId;
-    private String day_name, day_number, day_exercise_number;
+    private String day_name;
+    private int day_number, day_exercise_number;
 
     public DayListModel() {
 
     }
 
-    public DayListModel(String dayListId, String day_name, String day_number, String day_exercise_number) {
+    public DayListModel(String dayListId, String day_name, int day_number, int day_exercise_number) {
         this.dayListId = dayListId;
         this.day_name = day_name;
         this.day_number = day_number;
@@ -35,19 +36,19 @@ public class DayListModel {
         this.day_name = day_name;
     }
 
-    public String getDay_number() {
+    public int getDay_number() {
         return day_number;
     }
 
-    public void setDay_number(String day_number) {
+    public void setDay_number(int day_number) {
         this.day_number = day_number;
     }
 
-    public String getDay_exercise_number() {
+    public int getDay_exercise_number() {
         return day_exercise_number;
     }
 
-    public void setDay_exercise_number(String day_exercise_number) {
+    public void setDay_exercise_number(int day_exercise_number) {
         this.day_exercise_number = day_exercise_number;
     }
 }

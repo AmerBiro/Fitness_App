@@ -30,11 +30,6 @@ public class ProgramListViewModel extends ViewModel implements FirebaseRepositor
     }
 
     @Override
-    public void dayListDataAdded(List<DayListModel> dayListModels) {
-
-    }
-
-    @Override
     public void onError(Exception e) {
 
     }

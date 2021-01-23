@@ -21,21 +21,17 @@ import static android.content.ContentValues.TAG;
 
 public class FirebaseRepository {
 
+    public FirebaseRepository() {
+    }
+
     private FirebaseRepository.OnFirestoreTaskComplete onFirestoreTaskComplete;
 
     private String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    private String programListId;
 
     private Query programListRef = FirebaseFirestore.getInstance()
             .collection("user").document(userId)
             .collection("ProgramList")
             .orderBy("number");
-
-//    private Query dayListRef = FirebaseFirestore.getInstance()
-//            .collection("user").document(userId)
-//            .collection("ProgramList").document(programListId)
-//            .collection("DayList")
-//            .orderBy("day_number");
 
     public FirebaseRepository(FirebaseRepository.OnFirestoreTaskComplete onFirestoreTaskComplete) {
         this.onFirestoreTaskComplete = onFirestoreTaskComplete;
@@ -52,25 +48,9 @@ public class FirebaseRepository {
         });
     }
 
-//    public void getDayListData() {
-//        dayListRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
-//            @Override
-//            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-//                Log.d(TAG, "onEvent: " + value.getDocumentChanges().toString());
-//                List<DayListModel> dayListModels = value.toObjects(DayListModel.class);
-//                onFirestoreTaskComplete.dayListDataAdded(dayListModels);
-//            }
-//        });
-//    }
-
-
-    public void setProgramListId(String programListId) {
-        this.programListId = programListId;
-    }
 
     public interface OnFirestoreTaskComplete {
         void programListDataAdded(List<ProgramListModel> programListModels);
-        void dayListDataAdded(List<DayListModel> dayListModels);
 
         void onError(Exception e);
     }

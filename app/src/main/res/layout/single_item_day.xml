@@ -10,6 +10,7 @@
     android:layout_marginLeft="50dp"
     android:layout_marginRight="50dp"
     android:layout_marginBottom="10dp"
+    android:id="@+id/day_clicker"
     >
 
     <TextView
@@ -21,12 +22,14 @@
 
         />
 
-    <Button
+    <TextView
         android:id="@+id/day_list_single_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/day_list_single_item_name"
         style="@style/button_wide_main_pages"
+        android:textAlignment="center"
+        android:gravity="center"
         />
 
 </LinearLayout>

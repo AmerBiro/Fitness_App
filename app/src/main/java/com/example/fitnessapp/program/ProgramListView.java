@@ -89,6 +89,7 @@ public class ProgramListView extends Fragment implements ProgramListAdapter.OnPr
         ProgramListViewDirections.ActionHome2ToDayListViwer action =
                 ProgramListViewDirections.actionHome2ToDayListViwer();
         action.setPosition(position);
+        action.setProgramListId(programListModelss.get(position).getProgramListId());
         controller.navigate(action);
     }
 

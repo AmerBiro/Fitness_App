@@ -3,6 +3,7 @@ package com.example.fitnessapp.mvvm.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,7 +36,8 @@ public class DayListAdapter extends RecyclerView.Adapter<DayListAdapter.DayListV
 
     @Override
     public void onBindViewHolder(@NonNull DayListViewHolder holder, int position) {
-        String dayName, dayNumber, exerciseNumber;
+        String dayName;
+        int dayNumber, exerciseNumber;
 
         dayName = dayListModels.get(position).getDay_name();
         dayNumber = dayListModels.get(position).getDay_number();
