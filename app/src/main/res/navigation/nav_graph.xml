@@ -152,6 +152,9 @@
             android:name="position"
             app:argType="integer"
             android:defaultValue="0" />
+        <action
+            android:id="@+id/action_currentProgramViwer_to_dayListViwer"
+            app:destination="@id/dayListViwer" />
     </fragment>
 
 

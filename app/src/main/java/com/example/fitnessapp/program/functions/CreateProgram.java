@@ -87,7 +87,8 @@ public class CreateProgram {
                         .child("user")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .child("ProgramList")
-                        .child(number + ", " + programName + ", " +  documentReference.getId());
+                        .child(documentReference.getId())
+                        .child(documentReference.getId());
 
                 programImage.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override

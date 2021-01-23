@@ -2,12 +2,18 @@ package com.example.fitnessapp.program.functions;
 
 import android.net.Uri;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -21,11 +27,24 @@ import static android.content.ContentValues.TAG;
 
 public class EditProgram {
 
-    private String programId, programName, coachName, fitnessCenter, daysNumber, exercisesNumber, start_date, end_date;
+    private String programId, programName, coachName, fitnessCenter, start_date, end_date;
+    private int number, daysNumber, exercisesNumber;
     private Uri uri;
-    private int number;
+    private NavController controller;
+    private View view;
 
-    public void editProgram(String programId, int number, String programName, String coachName, String fitnessCenter, String daysNumber, String exercisesNumber, String start_date, String end_date, Uri uri) {
+    public void setViewController(NavController controller, View view) {
+        this.controller = controller;
+        this.view = view;
+        this.controller = Navigation.findNavController(view);
+    }
+
+    public void setParameters(String programId,
+                              int number, String programName, String coachName, String fitnessCenter,
+                              int daysNumber, int exercisesNumber,
+                              String start_date, String end_date,
+                              Uri uri) {
+        this.programId = programId;
         this.number = number;
         this.programName = programName;
         this.coachName = coachName;
@@ -35,68 +54,112 @@ public class EditProgram {
         this.start_date = start_date;
         this.end_date = end_date;
         this.uri = uri;
-        this.programId = programId;
+    }
 
-        StorageReference programImage = FirebaseStorage.getInstance().getReference()
-                .child("user")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child(programId);
+    public EditProgram() {
+    }
 
-        programImage.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+    public void editProgram(Button button, ProgressBar progressBar, int action) {
+
+        DocumentReference editProgramRef = FirebaseFirestore.getInstance()
+                .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .collection("ProgramList").document(programId);
+
+        button.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
+        Map<String, Object> editProgram = new HashMap<>();
+
+        editProgram.put("number", this.number);
+        editProgram.put("programName", this.programName);
+        editProgram.put("coachName", this.coachName);
+        editProgram.put("fitnessCenter", this.fitnessCenter);
+        editProgram.put("daysNumber", this.daysNumber);
+        editProgram.put("exercisesNumber", this.exercisesNumber);
+        editProgram.put("start_date", this.start_date);
+        editProgram.put("end_date", this.end_date);
+
+        editProgramRef.update(editProgram).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            public void onSuccess(Void aVoid) {
+                Log.d(TAG, "onSuccess: " + "Updating successfully " + programId);
 
-                programImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
+                if (uri != null){
+                    StorageReference programImage = FirebaseStorage.getInstance().getReference()
+                            .child("user")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .child("ProgramList")
+                            .child(programId)
+                            .child(programId);
 
-                        String image_url = uri.toString();
+                    programImage.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Log.d(TAG, "onSuccess: " + "Successfully uploading program image");
 
-                        DocumentReference updateProgramRef = FirebaseFirestore.getInstance()
-                                .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .collection("ProgramList").document(programId);
+                            programImage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Log.d(TAG, "onSuccess: " + "Successfully downloading program image");
 
-                        Map<String, Object> program = new HashMap<>();
+                                    DocumentReference programImageRef = FirebaseFirestore.getInstance()
+                                            .collection("user").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .collection("ProgramList").document(programId);
 
-                        program.put("number", number);
-                        program.put("programName", programName);
-                        program.put("coachName", coachName);
-                        program.put("fitnessCenter", fitnessCenter);
-                        program.put("daysNumber", daysNumber);
-                        program.put("exercisesNumber", exercisesNumber);
-                        program.put("start_date", start_date);
-                        program.put("end_date", end_date);
-                        program.put("image_url", image_url);
+                                    Map<String, Object> programImage = new HashMap<>();
+                                    programImage.put("image_url", uri.toString());
 
-                        updateProgramRef.update(program).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                
-
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.d(TAG, "onFailure: " + "Error updating program " + e.getMessage());
-                            }
-                        });
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG, "onFailure: " + "Error downloading image " + e.getMessage());
-                    }
-                });
+                                    programImageRef.update(programImage).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d(TAG, "onSuccess: " + "Successfully updating program data with program image url");
+                                            progressBar.setVisibility(View.INVISIBLE);
+                                            controller.navigate(action);
+                                            controller.navigateUp();
+                                            controller.popBackStack();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.d(TAG, "onFailure: " + "Error updating program image with image url " + e.getMessage());
+                                            progressBar.setVisibility(View.INVISIBLE);
+                                            button.setVisibility(View.VISIBLE);
+                                        }
+                                    });
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.d(TAG, "onFailure: " + "Error downloading program image " + e.getMessage());
+                                    progressBar.setVisibility(View.INVISIBLE);
+                                    button.setVisibility(View.VISIBLE);
+                                }
+                            });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d(TAG, "onFailure: " + "Error uploading program image  " + e.getMessage());
+                            progressBar.setVisibility(View.INVISIBLE);
+                            button.setVisibility(View.VISIBLE);
+                        }
+                    });
+                }else{
+                    progressBar.setVisibility(View.INVISIBLE);
+                    controller.navigate(action);
+                    controller.navigateUp();
+                    controller.popBackStack();
+                }
 
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.d(TAG, "onFailure: " + "Error uploading image " + e.getMessage());
+                Log.d(TAG, "onFailure: " + "Error adding program document " +  e.getMessage());
+                progressBar.setVisibility(View.INVISIBLE);
+                button.setVisibility(View.VISIBLE);
             }
         });
-
     }
-
 
 }
