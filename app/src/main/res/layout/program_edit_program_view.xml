@@ -8,9 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="30dp"
-    tools:context=".program.CreateProgramView">
-
-
+    tools:context=".program.EditProgramView">
 
 
     <ScrollView
@@ -30,7 +28,7 @@
                 style="@style/current_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/create_program" />
+                android:text="@string/about_program_title" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -40,7 +38,7 @@
                 app:cardCornerRadius="8dp">
 
                 <ImageView
-                    android:id="@+id/image_create_program"
+                    android:id="@+id/image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/placeholder_image" />
@@ -72,7 +70,7 @@
                 android:hint="Fitness center" />
 
             <EditText
-                android:id="@+id/number_days"
+                android:id="@+id/program_days"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,7 +78,7 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/number_exercises"
+                android:id="@+id/program_exercises"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,7 +87,7 @@
 
 
             <EditText
-                android:id="@+id/start_date"
+                android:id="@+id/program_start_date"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +95,7 @@
                 android:inputType="date" />
 
             <EditText
-                android:id="@+id/end_date"
+                android:id="@+id/program_end_date"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,12 +104,12 @@
 
 
             <Button
-                android:id="@+id/create"
+                android:id="@+id/edit"
                 style="@style/button_wide_main_pages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
-                android:text="Create" />
+                android:text="@string/about_program_edit" />
 
 
         </LinearLayout>

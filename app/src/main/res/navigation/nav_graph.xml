@@ -5,6 +5,8 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/splashScreen">
 
+
+
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.example.fitnessapp.registration.SplashScreen"
@@ -23,6 +25,8 @@
             app:destination="@id/home2" />
     </fragment>
 
+
+
     <fragment
         android:id="@+id/registration"
         android:name="com.example.fitnessapp.registration.Registration"
@@ -39,6 +43,8 @@
             app:destination="@id/home2" />
     </fragment>
 
+
+
     <fragment
         android:id="@+id/create_Account"
         android:name="com.example.fitnessapp.registration.Create_Account"
@@ -48,6 +54,8 @@
             android:id="@+id/action_create_Account_to_body2"
             app:destination="@id/body2" />
     </fragment>
+
+
 
     <fragment
         android:id="@+id/body2"
@@ -59,6 +67,8 @@
             app:destination="@id/membership" />
     </fragment>
 
+
+
     <fragment
         android:id="@+id/membership"
         android:name="com.example.fitnessapp.registration.Membership"
@@ -68,6 +78,8 @@
             android:id="@+id/action_membership_to_account_Image"
             app:destination="@id/account_Image" />
     </fragment>
+
+
 
     <fragment
         android:id="@+id/account_Image"
@@ -79,11 +91,13 @@
             app:destination="@id/home2" />
     </fragment>
 
+
+
     <fragment
         android:id="@+id/home2"
-        android:name="com.example.fitnessapp.program.ProgramListViwer"
+        android:name="com.example.fitnessapp.program.ProgramListView"
         android:label="home_home"
-        tools:layout="@layout/program_program_list_viwer" >
+        tools:layout="@layout/program_program_list_view" >
         <action
             android:id="@+id/action_home2_to_createProgram"
             app:destination="@id/createProgram" />
@@ -91,20 +105,26 @@
             android:id="@+id/action_home2_to_dayListViwer"
             app:destination="@id/dayListViwer" />
     </fragment>
+
+
+
     <fragment
         android:id="@+id/createProgram"
         android:name="com.example.fitnessapp.program.CreateProgramView"
         android:label="program_create_program"
-        tools:layout="@layout/program_create_program" >
+        tools:layout="@layout/program_create_program_view" >
         <action
             android:id="@+id/action_createProgram_to_home2"
             app:destination="@id/home2" />
     </fragment>
+
+
+
     <fragment
         android:id="@+id/dayListViwer"
-        android:name="com.example.fitnessapp.day.DayListViwer"
+        android:name="com.example.fitnessapp.day.DayListView"
         android:label="day_day_list_viwer"
-        tools:layout="@layout/day_day_list_viwer" >
+        tools:layout="@layout/day_day_list_view" >
         <action
             android:id="@+id/action_dayListViwer_to_currentProgramViwer"
             app:destination="@id/currentProgramViwer" />
@@ -116,16 +136,77 @@
             android:name="programListId"
             app:argType="string"
             android:defaultValue="null" />
+        <action
+            android:id="@+id/action_dayListViwer_to_exerciseListViwer"
+            app:destination="@id/exerciseListViwer" />
     </fragment>
+
+
+
     <fragment
         android:id="@+id/currentProgramViwer"
-        android:name="com.example.fitnessapp.program.CurrentProgramViwer"
+        android:name="com.example.fitnessapp.program.EditProgramView"
         android:label="program_current_program_viwer"
-        tools:layout="@layout/program_current_program_viwer" >
+        tools:layout="@layout/program_edit_program_view" >
         <argument
             android:name="position"
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>
+
+
+
+    <fragment
+        android:id="@+id/exerciseListViwer"
+        android:name="com.example.fitnessapp.exercise.ExerciseListView"
+        android:label="exercise_exercise_list_viwer"
+        tools:layout="@layout/exercise_exercise_list_view" >
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="programListId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="dayListId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="userId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <action
+            android:id="@+id/action_exerciseListViwer_to_createExercise"
+            app:destination="@id/createExercise" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/createExercise"
+        android:name="com.example.fitnessapp.exercise.CreateExerciseView"
+        android:label="exercise_create_exercise"
+        tools:layout="@layout/exercise_create_exercise">
+
+        <argument
+            android:name="userId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="programListId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="dayListId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <action
+            android:id="@+id/action_createExercise_to_exerciseListViwer"
+            app:destination="@id/exerciseListViwer" />
+
+
+    </fragment>
+
 
 </navigation>

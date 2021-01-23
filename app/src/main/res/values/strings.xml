@@ -73,9 +73,10 @@
 
     <string name="Programs">Programs</string>
     <string name="programs_name">Program name</string>
+    <string name="programs_number">Program number</string>
     <string name="days_exercises">x days with x exercise</string>
-    <string name="start_date">From: 01/01/2020</string>
-    <string name="end_date">To:     01/04/2020</string>
+    <string name="start_date">Start date</string>
+    <string name="end_date">End date</string>
 
     <string name="create_program">Create a new program</string>
     <string name="create_select_image">Choose an image</string>
@@ -91,8 +92,6 @@
     <string name="x_exercises_example">27</string>
     <string name="start_date_create_program">Start date</string>
     <string name="end_date_create_program">End date</string>
-    <string name="start_date_example">22/01/2020</string>
-    <string name="end_date_example">22/05/2020</string>
     <string name="create_program_button">Create</string>
     <string name="cancel_create_program_button">Cancel</string>
 

@@ -1,4 +1,4 @@
-package com.example.fitnessapp.mvvm;
+package com.example.fitnessapp.mvvm.model;
 
 import com.google.firebase.firestore.DocumentId;
 

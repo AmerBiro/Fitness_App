@@ -1,9 +1,8 @@
-package com.example.fitnessapp.database;
+package com.example.fitnessapp.create;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.widget.ImageView;
 import android.widget.Toast;
 

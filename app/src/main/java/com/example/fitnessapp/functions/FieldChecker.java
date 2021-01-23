@@ -26,7 +26,7 @@ public class FieldChecker {
     public Boolean isEmpty(EditText[] fields, String [] errorMessage){
             for (int i = 0; i < fields.length; i++) {
                 if (fields[i].getText().toString().isEmpty()) {
-                    fields[i].setError(errorMessage[i]);
+                    fields[i].setError(errorMessage[0]);
                 }
             }
             for (int i = 0; i < fields.length; i++) {

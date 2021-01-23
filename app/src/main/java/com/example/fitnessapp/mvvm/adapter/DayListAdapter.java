@@ -1,17 +1,15 @@
-package com.example.fitnessapp.mvvm;
+package com.example.fitnessapp.mvvm.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.fitnessapp.R;
+import com.example.fitnessapp.mvvm.model.DayListModel;
 
 import java.util.List;
 
@@ -31,7 +29,7 @@ public class DayListAdapter extends RecyclerView.Adapter<DayListAdapter.DayListV
     @NonNull
     @Override
     public DayListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.day_list_single_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_item_day, parent, false);
         return new DayListViewHolder(view);
     }
 

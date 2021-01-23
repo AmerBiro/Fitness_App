@@ -47,6 +47,7 @@ public class AlertDialogShower {
         Dialog dialog = new Dialog(activity);
         dialog.setContentView(R.layout.alert_dialog_forgot_password);
         dialog.getWindow().getAttributes().windowAnimations = R.style.alert_dialog_animation;
+        dialog.getWindow().getAttributes().windowAnimations = R.style.alert_dialog_animation;
         EditText email = dialog.findViewById(R.id.id_email);
         Button send_a_link = dialog.findViewById(R.id.id_send_a_link);
         Button cancel = dialog.findViewById(R.id.id_cancel);

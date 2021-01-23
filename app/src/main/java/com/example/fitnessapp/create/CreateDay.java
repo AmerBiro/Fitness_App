@@ -1,4 +1,4 @@
-package com.example.fitnessapp.database;
+package com.example.fitnessapp.create;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -18,13 +18,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddDay {
+public class CreateDay {
     private Activity activity;
     private View view;
     private String userId, programListId;
     private String day_name, day_number, day_exercise_number;
 
-    public AddDay(Activity activity, View view) {
+    public CreateDay(Activity activity, View view) {
         this.activity = activity;
         this.view = view;
     }

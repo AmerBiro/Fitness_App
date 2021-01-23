@@ -32,7 +32,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/ic_baseline_image_24"
+                android:background="@drawable/placeholder_image"
                 />
 
         </androidx.cardview.widget.CardView>

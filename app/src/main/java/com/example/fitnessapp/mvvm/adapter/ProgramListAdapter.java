@@ -1,23 +1,17 @@
-package com.example.fitnessapp.mvvm;
+package com.example.fitnessapp.mvvm.adapter;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fitnessapp.R;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.example.fitnessapp.mvvm.model.ProgramListModel;
 
 import java.util.List;
 
@@ -37,14 +31,16 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
     @NonNull
     @Override
     public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.program_list_single_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_item_program, parent, false);
         return new StudentViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-        String name, daysNumber, exercisesNumber, start_date, end_date;
+        String name, start_date, end_date;
+        int number, daysNumber, exercisesNumber;
 
+        number = programListModels.get(position).getNumber();
         name = programListModels.get(position).getProgramName();
         daysNumber = programListModels.get(position).getDaysNumber();
         exercisesNumber = programListModels.get(position).getExercisesNumber();
@@ -56,7 +52,7 @@ public class ProgramListAdapter extends RecyclerView.Adapter<ProgramListAdapter.
             name = name + "...";
         }
 
-        holder.name.setText(name);
+        holder.name.setText(number + ", " + name);
         holder.days_exercises.setText(daysNumber + " days, " + exercisesNumber + " exercise");
         holder.start_date.setText(start_date);
         holder.end_date.setText(end_date);

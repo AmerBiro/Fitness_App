@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/ColorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".day.DayListViwer">
+    tools:context=".day.DayListView">
 
     <TextView
-        style="@style/title_program_pages"
+        style="@style/title_lists"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/day_title" />
@@ -20,7 +20,6 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
-            style="@style/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

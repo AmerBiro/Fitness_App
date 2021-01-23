@@ -1,8 +1,12 @@
-package com.example.fitnessapp.mvvm;
+package com.example.fitnessapp.mvvm.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.fitnessapp.mvvm.FirebaseRepository;
+import com.example.fitnessapp.mvvm.model.DayListModel;
+import com.example.fitnessapp.mvvm.model.ProgramListModel;
 
 import java.util.List;
 
@@ -23,6 +27,11 @@ public class ProgramListViewModel extends ViewModel implements FirebaseRepositor
     @Override
     public void programListDataAdded(List<ProgramListModel> programListModels) {
         programListModelData.setValue(programListModels);
+    }
+
+    @Override
+    public void dayListDataAdded(List<DayListModel> dayListModels) {
+
     }
 
     @Override

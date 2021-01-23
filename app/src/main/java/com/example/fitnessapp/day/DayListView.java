@@ -10,11 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -23,22 +21,13 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.bumptech.glide.Glide;
 import com.example.fitnessapp.R;
-import com.example.fitnessapp.database.AddDay;
-import com.example.fitnessapp.databinding.DayDayListViwerBinding;
-import com.example.fitnessapp.functions.AlertDialogShower;
-import com.example.fitnessapp.mvvm.DayListAdapter;
-import com.example.fitnessapp.mvvm.DayListModel;
-import com.example.fitnessapp.mvvm.ProgramListAdapter;
-import com.example.fitnessapp.mvvm.ProgramListModel;
-import com.example.fitnessapp.mvvm.ProgramListViewModel;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.example.fitnessapp.create.CreateDay;
+import com.example.fitnessapp.databinding.DayDayListViewBinding;
+import com.example.fitnessapp.mvvm.adapter.DayListAdapter;
+import com.example.fitnessapp.mvvm.model.DayListModel;
+import com.example.fitnessapp.mvvm.model.ProgramListModel;
+import com.example.fitnessapp.mvvm.viewmodel.ProgramListViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -54,10 +43,10 @@ import java.util.List;
 import static android.content.ContentValues.TAG;
 
 
-public class DayListViwer extends Fragment implements View.OnClickListener, DayListAdapter.OnDayListItemClicked {
+public class DayListView extends Fragment implements View.OnClickListener, DayListAdapter.OnDayListItemClicked {
 
     private @NonNull
-    DayDayListViwerBinding
+    DayDayListViewBinding
             binding;
     private NavController controller;
     private FirebaseAuth firebaseAuth;
@@ -68,14 +57,14 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
     private String userId;
     private List<DayListModel> dayListModels = new ArrayList<>();
     private String programListId;
-    private AddDay day;
+    private CreateDay day;
 
     private RecyclerView recyclerView;
     private DayListAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = DayDayListViwerBinding.inflate(inflater, container, false);
+        binding = DayDayListViewBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         return view;
     }
@@ -83,12 +72,12 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        position = DayListViwerArgs.fromBundle(getArguments()).getPosition();
+        position = DayListViewArgs.fromBundle(getArguments()).getPosition();
         controller = Navigation.findNavController(view);
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
-        day = new AddDay(getActivity(),view);
+        day = new CreateDay(getActivity(),view);
         recyclerViewSetup();
     }
 
@@ -181,8 +170,8 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.about:
-                DayListViwerDirections.ActionDayListViwerToCurrentProgramViwer action =
-                        DayListViwerDirections.actionDayListViwerToCurrentProgramViwer();
+                DayListViewDirections.ActionDayListViwerToCurrentProgramViwer action =
+                        DayListViewDirections.actionDayListViwerToCurrentProgramViwer();
                 action.setPosition(position);
                 controller.navigate(action);
                 break;
@@ -203,5 +192,14 @@ public class DayListViwer extends Fragment implements View.OnClickListener, DayL
     @Override
     public void onItemClicked(int position) {
         Log.d(TAG, "dayListOnItemClicked: " + position);
+        String dayListId = dayListModels.get(position).getDayListId();
+        DayListViewDirections.ActionDayListViwerToExerciseListViwer action =
+                DayListViewDirections.actionDayListViwerToExerciseListViwer();
+        action.setPosition(position);
+        action.setProgramListId(programListId);
+        action.setDayListId(dayListId);
+        action.setUserId(userId);
+        controller.navigate(action);
+
     }
 }

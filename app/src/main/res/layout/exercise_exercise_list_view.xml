@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ColorPrimaryDark"
-    tools:context=".exercise.ExerciseListViwer"
+    tools:context=".exercise.ExerciseListView"
     android:orientation="vertical"
     >
 
@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Exercise"
-        style="@style/title_program_pages"
+        style="@style/title_lists"
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,7 +26,6 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/recyclerview"
             />
 
 
@@ -42,7 +41,7 @@
             android:layout_marginBottom="40dp"
             >
             <Button
-                android:id="@+id/add"
+                android:id="@+id/add_exercise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/exercise_add"

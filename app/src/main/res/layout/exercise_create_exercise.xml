@@ -1,10 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".exercise.CreateExercise">
+    android:background="@drawable/create_program_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context=".exercise.CreateExerciseView">
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-</FrameLayout>
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/current_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add a new exercise" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/image_placeholder"
+                android:backgroundTint="@color/ColorLightText"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/placeholder_image" />
+            </androidx.cardview.widget.CardView>
+
+
+            <EditText
+                android:id="@+id/exercise_number"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Exercise number"
+                android:inputType="number"
+                />
+
+
+            <EditText
+                android:id="@+id/exercise_name"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Exercise name" />
+
+
+            <EditText
+                android:id="@+id/sets"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="SETS"
+                android:inputType="number"
+                />
+
+            <EditText
+                android:id="@+id/reps"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="REPS"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/rest"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="REST"
+                android:inputType="number" />
+
+
+            <EditText
+                android:id="@+id/start_weight"
+                style="@style/current_item_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Start weight"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/link"
+                style="@style/current_item_field"
+                android:inputType="textUri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Video Link" />
+
+
+            <Button
+                android:id="@+id/create_exercise_button"
+                style="@style/button_wide_main_pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="Create" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

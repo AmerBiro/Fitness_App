@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/ColorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".program.ProgramListViwer">
+    tools:context=".program.ProgramListView">
 
     <TextView
-        style="@style/title_program_pages"
+        style="@style/title_lists"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Programs" />
@@ -20,9 +20,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
-            style="@style/recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginBottom="24dp"
+            />
 
 
         <LinearLayout
@@ -36,12 +37,11 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/add"
-                style="@style/button_medium_main_pages"
+                android:id="@+id/add_program"
+                style="@style/button_wide_main_pages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_medium"
-                android:layout_marginBottom="25dp"
                 android:text="@string/exercise_add" />
 
 

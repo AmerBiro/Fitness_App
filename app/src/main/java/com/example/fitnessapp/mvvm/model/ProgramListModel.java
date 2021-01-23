@@ -1,4 +1,4 @@
-package com.example.fitnessapp.mvvm;
+package com.example.fitnessapp.mvvm.model;
 
 import com.google.firebase.firestore.DocumentId;
 
@@ -7,21 +7,24 @@ public class ProgramListModel {
 
     @DocumentId
     private String programListId;
-    private String programName, coachName, fitnessCenter, daysNumber, exercisesNumber, start_date, end_date, image_url;
+    private String programName, coachName, fitnessCenter, start_date, end_date, image_url;
+    private int number, daysNumber, exercisesNumber;
 
     public ProgramListModel() {
+
     }
 
-    public ProgramListModel(String programListId, String programName, String coachName, String fitnessCenter, String daysNumber, String exercisesNumber, String start_date, String end_date, String image_url) {
+    public ProgramListModel(String programListId, String programName, String coachName, String fitnessCenter, String start_date, String end_date, String image_url, int number, int daysNumber, int exercisesNumber) {
         this.programListId = programListId;
         this.programName = programName;
         this.coachName = coachName;
         this.fitnessCenter = fitnessCenter;
-        this.daysNumber = daysNumber;
-        this.exercisesNumber = exercisesNumber;
         this.start_date = start_date;
         this.end_date = end_date;
         this.image_url = image_url;
+        this.number = number;
+        this.daysNumber = daysNumber;
+        this.exercisesNumber = exercisesNumber;
     }
 
     public String getProgramListId() {
@@ -56,22 +59,6 @@ public class ProgramListModel {
         this.fitnessCenter = fitnessCenter;
     }
 
-    public String getDaysNumber() {
-        return daysNumber;
-    }
-
-    public void setDaysNumber(String daysNumber) {
-        this.daysNumber = daysNumber;
-    }
-
-    public String getExercisesNumber() {
-        return exercisesNumber;
-    }
-
-    public void setExercisesNumber(String exercisesNumber) {
-        this.exercisesNumber = exercisesNumber;
-    }
-
     public String getStart_date() {
         return start_date;
     }
@@ -94,5 +81,29 @@ public class ProgramListModel {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getDaysNumber() {
+        return daysNumber;
+    }
+
+    public void setDaysNumber(int daysNumber) {
+        this.daysNumber = daysNumber;
+    }
+
+    public int getExercisesNumber() {
+        return exercisesNumber;
+    }
+
+    public void setExercisesNumber(int exercisesNumber) {
+        this.exercisesNumber = exercisesNumber;
     }
 }
