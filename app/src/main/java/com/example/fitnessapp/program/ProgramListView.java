@@ -103,7 +103,7 @@ public class ProgramListView extends Fragment implements ProgramListAdapter.OnPr
     }
 
     private void onSwiped(){
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
@@ -111,13 +111,21 @@ public class ProgramListView extends Fragment implements ProgramListAdapter.OnPr
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                getProgramData = new GetProgramData(programListModelss, viewHolder.getAdapterPosition());
+                if (direction == 4){
+                    getProgramData = new GetProgramData(programListModelss, viewHolder.getAdapterPosition());
 
-                deleteProgram.deleteProgram(
-                        getProgramData.getProgramListId(),
-                        getProgramData.getNumber() + ", " + getProgramData.getProgramName(),
-                        getProgramData.getStart_date(),
-                        getProgramData.getEnd_date());
+                    deleteProgram.deleteProgram(
+                            getProgramData.getProgramListId(),
+                            getProgramData.getNumber() + ", " + getProgramData.getProgramName(),
+                            getProgramData.getStart_date(),
+                            getProgramData.getEnd_date());
+                }else{
+                    ProgramListViewDirections.ActionHome2ToCurrentProgramViwer action =
+                            ProgramListViewDirections.actionHome2ToCurrentProgramViwer();
+                    action.setPosition(viewHolder.getAdapterPosition());
+                    controller.navigate(action);
+                }
+
             }
         }).attachToRecyclerView(recyclerView);
     }

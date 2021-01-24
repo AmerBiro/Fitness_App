@@ -49,7 +49,7 @@ public class ExerciseListAdapter extends RecyclerView.Adapter<ExerciseListAdapte
         image_url = exerciseListModels.get(position).getImage_url();
 
 
-        holder.exercise_number_and_name.setText("Number " + exercise_number + ", " + exercise_name);
+        holder.exercise_number_and_name.setText(exercise_number + ", " + exercise_name);
         holder.reps.setText(reps + "");
         holder.rest.setText(rest + "");
         holder.sets.setText(sets + "");

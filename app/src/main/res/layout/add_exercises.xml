@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/day_list_create_day_view"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    >
+
+    <EditText
+        android:id="@+id/number_of_exercises_to_be_added"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Number of exercises"
+        android:gravity="center"
+        style="@style/field_sub_field"
+        android:inputType="number"
+        />
+
+
+    <Button
+        android:id="@+id/add_exercises"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/button_medium_main_pages"
+        android:text="@string/day_add_day"
+        android:layout_marginTop="10dp"
+        />
+
+
+</LinearLayout>

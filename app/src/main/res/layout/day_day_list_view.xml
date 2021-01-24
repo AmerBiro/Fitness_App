@@ -37,13 +37,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <Button
-                android:id="@+id/about"
-                style="@style/button_medium_main_pages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="33dp"
-                android:text="@string/day_about" />
 
             <Button
                 android:id="@+id/add_day"

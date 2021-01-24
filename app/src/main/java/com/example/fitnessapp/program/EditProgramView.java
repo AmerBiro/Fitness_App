@@ -67,6 +67,8 @@ public class EditProgramView extends Fragment implements View.OnClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         controller = Navigation.findNavController(view);
+        position = EditProgramViewArgs.fromBundle(getArguments()).getPosition();
+        Log.d(TAG, "onViewCreated: " + position);
         editProgram = new EditProgram();
         editProgram.setViewController(controller, view);
         imagePosition = 1000;
@@ -169,7 +171,7 @@ public class EditProgramView extends Fragment implements View.OnClickListener {
                             binding.endDate.getText().toString(),
                             uri
                     );
-                    editProgram.editProgram(binding.edit, binding.progressBarProgram, R.id.action_currentProgramViwer_to_dayListViwer);
+                    editProgram.editProgram(binding.edit, binding.progressBarProgram, R.id.action_currentProgramViwer_to_home2);
                 } else {
                     Toast.makeText(getActivity(), "An image must be selected", 0).show();
                     return;

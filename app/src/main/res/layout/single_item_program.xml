@@ -9,7 +9,7 @@
     android:layout_marginRight="20dp"
     android:background="@drawable/program_list_single_item"
     android:orientation="vertical"
-    android:paddingBottom="30dp">
+    >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,6 +42,8 @@
     <TextView
         android:id="@+id/program_list_single_item_name"
         style="@style/single_item"
+        android:textAlignment="center"
+        android:layout_marginTop="1dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/programs_name"
@@ -50,25 +52,33 @@
     <TextView
         android:id="@+id/program_list_single_item_days_exercises"
         style="@style/single_item"
+        android:layout_marginTop="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/days_exercises"
         />
 
 
-    <TextView
-        android:id="@+id/program_list_single_item_start_date"
-        style="@style/single_item"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/start_date" />
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        >
+        <TextView
+            android:id="@+id/program_list_single_item_start_date"
+            style="@style/single_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_date" />
 
-    <TextView
-        android:id="@+id/program_list_single_item_end_date"
-        style="@style/single_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/end_date" />
+        <TextView
+            android:id="@+id/program_list_single_item_end_date"
+            style="@style/single_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/end_date" />
+    </LinearLayout>
 
 
 </LinearLayout>

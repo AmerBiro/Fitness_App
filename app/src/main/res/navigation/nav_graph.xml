@@ -104,6 +104,9 @@
         <action
             android:id="@+id/action_home2_to_dayListViwer"
             app:destination="@id/dayListViwer" />
+        <action
+            android:id="@+id/action_home2_to_currentProgramViwer"
+            app:destination="@id/currentProgramViwer" />
     </fragment>
 
 
@@ -125,9 +128,6 @@
         android:name="com.example.fitnessapp.day.DayListView"
         android:label="day_day_list_viwer"
         tools:layout="@layout/day_day_list_view" >
-        <action
-            android:id="@+id/action_dayListViwer_to_currentProgramViwer"
-            app:destination="@id/currentProgramViwer" />
         <argument
             android:name="position"
             app:argType="integer"
@@ -153,8 +153,8 @@
             app:argType="integer"
             android:defaultValue="0" />
         <action
-            android:id="@+id/action_currentProgramViwer_to_dayListViwer"
-            app:destination="@id/dayListViwer" />
+            android:id="@+id/action_currentProgramViwer_to_home2"
+            app:destination="@id/home2" />
     </fragment>
 
 
@@ -181,21 +181,19 @@
             app:argType="string"
             android:defaultValue="null" />
         <action
-            android:id="@+id/action_exerciseListViwer_to_createExercise"
-            app:destination="@id/createExercise" />
+            android:id="@+id/action_exerciseListViwer_to_editExerciseView"
+            app:destination="@id/editExerciseView" />
     </fragment>
 
 
     <fragment
-        android:id="@+id/createExercise"
-        android:name="com.example.fitnessapp.exercise.CreateExerciseView"
-        android:label="exercise_create_exercise"
-        tools:layout="@layout/exercise_create_exercise">
-
-        <argument
-            android:name="userId"
-            app:argType="string"
-            android:defaultValue="null" />
+        android:id="@+id/editExerciseView"
+        android:name="com.example.fitnessapp.exercise.EditExerciseView"
+        android:label="exercise_edit_exercise_view"
+        tools:layout="@layout/exercise_edit_exercise_view" >
+        <action
+            android:id="@+id/action_editExerciseView_to_exerciseListViwer"
+            app:destination="@id/exerciseListViwer" />
         <argument
             android:name="programListId"
             app:argType="string"
@@ -204,11 +202,14 @@
             android:name="dayListId"
             app:argType="string"
             android:defaultValue="null" />
-        <action
-            android:id="@+id/action_createExercise_to_exerciseListViwer"
-            app:destination="@id/exerciseListViwer" />
-
-
+        <argument
+            android:name="exerciseListId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
 

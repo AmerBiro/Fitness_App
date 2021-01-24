@@ -7,8 +7,7 @@
     android:background="@drawable/create_program_background"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="30dp"
-    tools:context=".exercise.CreateExerciseView">
+    tools:context=".exercise.EditExerciseView">
 
 
     <ScrollView
@@ -21,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:padding="30dp"
             android:orientation="vertical">
 
             <TextView
@@ -28,7 +28,7 @@
                 style="@style/current_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add a new exercise" />
+                android:text="Edit Exercise" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 app:cardCornerRadius="8dp">
 
                 <ImageView
-                    android:id="@+id/image"
+                    android:id="@+id/edit_exercise_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/placeholder_image" />
@@ -46,18 +46,17 @@
 
 
             <EditText
-                android:id="@+id/exercise_number"
+                android:id="@+id/edit_exercise_number"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="4dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
                 android:hint="Exercise number"
-                android:inputType="number"
-                />
+                android:inputType="number" />
 
 
             <EditText
-                android:id="@+id/exercise_name"
+                android:id="@+id/edit_exercise_name"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,16 +64,15 @@
 
 
             <EditText
-                android:id="@+id/sets"
+                android:id="@+id/edit_exercise_sets"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="SETS"
-                android:inputType="number"
-                />
+                android:inputType="number" />
 
             <EditText
-                android:id="@+id/reps"
+                android:id="@+id/edit_exercise_reps"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +80,7 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/rest"
+                android:id="@+id/edit_exercise_rest"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,7 +89,7 @@
 
 
             <EditText
-                android:id="@+id/start_weight"
+                android:id="@+id/edit_exercise_start_weight"
                 style="@style/current_item_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,21 +97,20 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/link"
+                android:id="@+id/edit_exercise_link"
                 style="@style/current_item_field"
-                android:inputType="textUri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Video Link" />
+                android:hint="Video Link"
+                android:inputType="textUri" />
 
 
             <Button
-                android:id="@+id/create_exercise_button"
+                android:id="@+id/edit_exercise_save_changes"
                 style="@style/button_wide_main_pages"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:text="Create" />
+                android:text="Save Changes" />
 
 
         </LinearLayout>

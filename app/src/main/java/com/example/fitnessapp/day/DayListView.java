@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitnessapp.R;
 import com.example.fitnessapp.databinding.DayDayListViewBinding;
-import com.example.fitnessapp.day.functions.CreateDay;
+import com.example.fitnessapp.day.functions.AddDay;
 import com.example.fitnessapp.day.functions.DeleteDay;
 import com.example.fitnessapp.day.functions.EditDay;
 import com.example.fitnessapp.day.functions.GetDayData;
@@ -51,7 +51,7 @@ public class DayListView extends Fragment implements View.OnClickListener, DayLi
     private DayListAdapter adapter;
 
     private List<DayListModel> dayListModels = new ArrayList<>();
-    private CreateDay createDay;
+    private AddDay addDay;
     private GetDayData getDayData;
     private DeleteDay deleteDay;
     private EditDay editDay;
@@ -77,7 +77,7 @@ public class DayListView extends Fragment implements View.OnClickListener, DayLi
         programListId = DayListViewArgs.fromBundle(getArguments()).getProgramListId();
 //        Log.d(TAG, "onViewCreated: " +userId + ", " +  programListId + ", " + position);
 
-        createDay = new CreateDay(view, getActivity());
+        addDay = new AddDay(view, getActivity());
         editDay = new EditDay(view, getActivity());
         recyclerViewSetup();
         getDayListData();
@@ -102,25 +102,17 @@ public class DayListView extends Fragment implements View.OnClickListener, DayLi
         });
     }
 
-
     @Override
     public void onStart() {
         super.onStart();
-        binding.about.setOnClickListener(this);
         binding.addDay.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.about:
-                DayListViewDirections.ActionDayListViwerToCurrentProgramViwer action =
-                        DayListViewDirections.actionDayListViwerToCurrentProgramViwer();
-                action.setPosition(position);
-                controller.navigate(action);
-                break;
             case R.id.add_day:
-                createDay.addDay(userId, programListId);
+                addDay.addDay(userId, programListId);
             default:
         }
     }

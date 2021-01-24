@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 
 import com.example.fitnessapp.R;
@@ -17,7 +16,6 @@ import com.example.fitnessapp.mvvm.adapter.DayListAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -53,7 +51,7 @@ public class EditDay {
         this.day_exercise_numbers = day_exercise_number;
 
         Dialog dialog = new Dialog(activity);
-        dialog.setContentView(R.layout.day_create_day_view);
+        dialog.setContentView(R.layout.day_add_day_view);
         dialog.getWindow().getAttributes().windowAnimations = R.style.alert_dialog_animation;
         dialog.setCancelable(true);
         dialog.show();
